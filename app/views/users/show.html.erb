@@ -1,17 +1,23 @@
 <div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
+  <aside class="col-sm-5">
+    <div class="card text-black bg-light">
+      <img class="bd-placeholder-img card-img-top" <%= image_tag @user.image.url if @user.image? %>
       <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
+        <h2 class="card-title text-center"><%= @user.name %></h2>
       </div>
-      <div class="card-body">
-        
+      <div class="card-text">
+        <h4 class="text-center">プロフィール</h4>
+        <div class="overflow-auto">
+        <%= @user.profile %>
+        </div>
       </div>
+          
+      <div class="card-footer">編集・フォロー</div>
     </div>
   </aside>
-  <div class="col-sm-8">
+  <div class="col-sm-7">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">投稿</a></li>
+      <li class="nav-item"><a href="#" class="nav-link active">投稿</a></li>
       <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
       <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
     </ul>

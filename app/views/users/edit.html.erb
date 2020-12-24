@@ -1,2 +1,46 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="text-center">
+  <h1>マイページの編集</h1>
+</div>
+
+<div class="row text-center">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, 'パスワード(6文字以上)' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'パスワード(確認用)' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :profile, 'プロフィール文' %>
+        <%= f.text_area :profile, class: 'form-control', placeholder: "160文字以内で入力" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :image, 'プロフィール画像' %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'マイページを更新する', class: 'btn btn-secondary btn-block' %>
+    <% end %>
+    
+    <p class="mt-2">Body Checkを退会する場合は<%= link_to 'こちら', @user, method: :delete, data: { confirm: '本当に退会しますか？退会すると登録したデータは元に戻りません。' } %>をクリック</p>
+  </div>
+</div>

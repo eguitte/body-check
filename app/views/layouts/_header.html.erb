@@ -7,13 +7,24 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to 'ユーザー一覧へ', users_path, class: 'nav-link' %></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'マイページ編集', edit_user_path(@current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
         <div class="signup">
         <li class="nav-item"><button type="button" class="btn btn-block btn-outline-secondary btn-sm"><a href="/signup" class="nav-link" style="font-color: white"> 新規登録</a></button></li>
         </div>
         <div class="login">
-        <li class="nav-item"><button type="button" class="btn btn-block btn-outline-secondary btn-sm"><a href="#" class="nav-link" style="font-color: white">ログイン</a></button></li>
+        <li class="nav-item"><button type="button" class="btn btn-block btn-outline-secondary btn-sm"><a href="/login" class="nav-link" style="font-color: white">ログイン</a></button></li>
         </div>
+        <% end %>
       </ul>
     </div>
   </nav>

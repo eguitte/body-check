@@ -1,20 +1,27 @@
-<div class="row">
+<div class="row rounded">
   <aside class="col-sm-5">
-    <div class="card text-black bg-light">
-      <img class="bd-placeholder-img card-img-top" <%= image_tag @user.image.url if @user.image? %>
+    <div class="card text-black bg-light ">
+      <div>
+      <% if @user.image? %>
+      <img class="bd-placeholder-img card-img-top" <%= image_tag @user.image.url %>
+      <% else %>
+      <img class="bd-placeholder-img card-img-top" <%= image_tag("default.logo.png") %>
+      <% end %>
       <div class="card-header">
         <h2 class="card-title text-center"><%= @user.name %></h2>
       </div>
       <div class="card-text">
         <h4 class="text-center">プロフィール</h4>
         <div class="overflow-auto">
-        <%= @user.profile %>
+        <% if @user.profile? %>
+        <%= @user.profile.gsub(/\r\n|\r|\n/, "<br>") %>
+        <% end %>
         </div>
       </div>
-          
-      <div class="card-footer">編集・フォロー</div>
+      <div class="card-footer">編集ボタン・フォローボタン（仮）</div>
     </div>
   </aside>
+          
   <div class="col-sm-7">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="#" class="nav-link active">投稿</a></li>

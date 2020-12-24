@@ -8,13 +8,16 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to 'ユーザー一覧へ', users_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'マイページ', user_path(@current_user), class: 'nav-link' %></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'マイページ編集', edit_user_path(@current_user) %></li>
               <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'ユーザーの一覧', users_path %></li>
+              <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+              
             </ul>
           </li>
         <% else %>

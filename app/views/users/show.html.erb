@@ -1,32 +1,51 @@
-<div class="row rounded">
-  <aside class="col-sm-5">
-    <div class="card text-black bg-light ">
-      <div>
-      <% if @user.image? %>
-      <img class="bd-placeholder-img card-img-top" <%= image_tag @user.image.url %>
-      <% else %>
-      <img class="bd-placeholder-img card-img-top" <%= image_tag("default.logo.png") %>
-      <% end %>
-      <div class="card-header">
-        <h2 class="card-title text-center"><%= @user.name %></h2>
+<div class="container">
+  
+ <div class="row">
+    <div class="col-sm-6 mt-4">
+      <div class="card text-black bg-light">
+        <div>
+          <% if @user.image? %>
+            <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top" %>
+          <% else %>
+            <%= image_tag("default.logo.png", class: "bd-placeholder-img card-img-top") %>
+          <% end %>
+        </div>
+        <div class="card-header">
+          <h2 class="card-title text-center"><%= @user.name %></h2>
+        </div>
+        <div class="card-footer">編集ボタン・フォローボタン（仮）</div>
       </div>
-      <div class="card-text">
-        <h4 class="text-center">プロフィール</h4>
-        <div class="overflow-auto">
-        <% if @user.profile? %>
-        <%= @user.profile.gsub(/\r\n|\r|\n/, "<br>") %>
-        <% end %>
+    </div>
+    <div class="col-sm-6 mt-4">
+      <div class="card text-black bg-light">
+        <div class="card-text">
+          <h4 class="text-center">プロフィール</h4>
+          <div class="overflow-auto">
+            <% if @user.profile? %>
+              <span style="white-space: pre-wrap;"><%= @user.profile %></span>
+            <% end %>
+          </div>
         </div>
       </div>
-      <div class="card-footer">編集ボタン・フォローボタン（仮）</div>
     </div>
-  </aside>
-          
-  <div class="col-sm-7">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link active">投稿</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
-    </ul>
   </div>
+  
+  <div class="row mt-4">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs nav-justified mb-3">
+        <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+      </ul>
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+  </div>
+
 </div>
+  
+        
+        
+        
+        
+        
+  

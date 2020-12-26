@@ -4,6 +4,6 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, presence: true
   validates :profile, length: { maximum: 160 }
   has_secure_password
-  
+  has_many :posts
   mount_uploader :image, ImageUploader
 end

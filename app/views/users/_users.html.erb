@@ -1,7 +1,7 @@
 <% if users.any? %>
-  <ul class="list-unstyled">
+  <ul class="list-unstyled　ml-4 mt-4">
     <% users.each do |user| %>
-      <li class="media">
+      <li class="media mt-2">
         <div class="icon">
         <% if user.image? %>
           <img class="mr-2 rounded" <%= image_tag user.image.url %>
@@ -21,5 +21,8 @@
       </li>
     <% end %>
   </ul>
-  <%= paginate users %>
+  <div class="text-center">
+    <%= paginate users %>
+  </div>
+    
 <% end %>

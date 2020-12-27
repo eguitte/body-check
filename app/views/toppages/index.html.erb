@@ -5,7 +5,7 @@
         <div class="form-group">
           <%= f.text_area :content, class: 'form-control', rows: 8 %>
         </div>
-        <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
+        <%= f.submit '投稿する', class: 'btn btn-secondary btn-block' %>
       <% end %>
     </aside>
     <div class="col-sm-6 mt-4">
@@ -13,10 +13,38 @@
     </div>
   </div>
 <% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Body Check</h1>
-      <%= link_to 'Sign up!', signup_path, class: 'btn btn-lg btn-primary' %>
+
+    <div class="main">
+      <div class="description">
+        <h1>毎日のワークアウトを記録<br>写真やインボディ結果の記録で変化がわかりやすい！</h1>
+        <h4>他のトレーニーとも繋がってモチベーションを高め合おう！</h4>
+         <div class="form">
+         <%= link_to "今すぐ新規登録", signup_path, class: "btn btn-danger signup" %>
+         <%= link_to "ログイン", login_path, class: "btn btn-danger login" %>
+         </div>
+      </div>
+           
+      
+     
     </div>
-  </div>
+    
+    <div class="content mt-2 mb-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 mt-4">
+            <h1 class="text-center">About</h1>
+            <h2>トレーニングの効果が出ているのか分からなくていつも続かない...<br>モチベーションが保てない...</h2>
+            <h4>BodyCheckではワークアウト内容・体の写真・インボディ結果を記録でき、変化を見て実感。</h4>
+            <h4>他のユーザーと繋がってフィットネスライフを楽しめるコミュニティサイトです！</h4>
+          </div>
+          <div class="col-sm-6">
+            <%= image_tag 'content.jpg' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="home">
+    <p>Copyright BodyCheck All Rights Reserved</p>
+    </footer>
 <% end %>

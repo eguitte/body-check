@@ -3,11 +3,11 @@
  <div class="row">
     <div class="col-sm-6 mt-4">
       <div class="card text-black bg-light">
-        <div>
+        <div class="profile-icon">
           <% if @user.image? %>
             <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top" %>
           <% else %>
-            <%= image_tag("default.logo.png", class: "bd-placeholder-img card-img-top") %>
+            <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top") %>
           <% end %>
         </div>
         <div class="card-header">

@@ -1,4 +1,5 @@
 <div class="container">
+      
   <div class="row mt-4">
     <div class="col-12">
       <div class=" signup-title text-center">
@@ -9,7 +10,6 @@
   
   <div class="row text-center">
     <div class="col-sm-6 offset-sm-3">
-  
       <%= form_with(model: @user, local: true) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         
@@ -35,8 +35,8 @@
   
         <%= f.submit '登録する', class: 'btn btn-secondary btn-block' %>
       <% end %>
-      
-      <p class="mt-2">登録済みの方: <%= link_to 'ログイン', login_path %></p>
+        <p class="mt-2">登録済みの方: <%= link_to 'ログイン', login_path %></p>
     </div>
   </div>
+  
 </div>

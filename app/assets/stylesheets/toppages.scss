@@ -1,4 +1,12 @@
-// toppages
+@media (min-width: 1000px) {
+  .main {
+    height: 600px;
+  }
+  .description {
+    text-align: center;
+    width: 100%;
+  }
+}
 
 .main {
   width: 100%;
@@ -9,8 +17,7 @@
 .description{
   width: 700px;
   height: auto;
-  margin-top: 450px;
-  margin-right: 100px;
+  margin: 450px 50px 0 0;
   color: #fff;
   float: right;
   h1 {
@@ -20,11 +27,12 @@
 .form {
   margin-top: 10px;
   float: right;
+  }
 }
-  
-}
+
+
 .login {
-  margin-left: 20px;
+  margin: 0 20px;
 }
   
 footer.home {
@@ -44,9 +52,11 @@ footer.home {
   width: 100%;
   background-color: #EEEEEE;
 }
+.content-title {
+  font-weight: bold;
+}
 
-
-
-
-// signup
-// login
+.content-image img {
+  border-radius: 50%;
+  width: 100%;
+}

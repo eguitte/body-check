@@ -26,6 +26,9 @@
       <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
+       <% if logged_in? %>
+        <%= render "layouts/footer" %>
+       <% end %>
 
   </body>
 </html>

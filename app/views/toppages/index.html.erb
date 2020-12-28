@@ -2,13 +2,13 @@
   <div class="row">
     <aside class="col-sm-5 mt-4 ml-4 mr-4">
       <%= form_with(model: @post, local: true) do |f| %>
-        <div class="form-group">
+        <div class="form-group mt-4">
           <%= f.text_area :content, class: 'form-control', rows: 8 %>
         </div>
         <%= f.submit '投稿する', class: 'btn btn-secondary btn-block' %>
       <% end %>
     </aside>
-    <div class="col-sm-6 mt-4">
+    <div class="col-sm-6 mt-4 ml-4">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>
@@ -31,13 +31,13 @@
     <div class="content mt-2 mb-2">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 mt-4">
-            <h1 class="text-center">About</h1>
+          <div class="col-md-6 mt-4">
+            <h1 class="text-center content-title">About</h1>
             <h2>トレーニングの効果が出ているのか分からなくていつも続かない...<br>モチベーションが保てない...</h2>
             <h4>BodyCheckではワークアウト内容・体の写真・インボディ結果を記録でき、変化を見て実感。</h4>
             <h4>他のユーザーと繋がってフィットネスライフを楽しめるコミュニティサイトです！</h4>
           </div>
-          <div class="col-sm-6">
+          <div class="col-md-6 content-image">
             <%= image_tag 'content.jpg' %>
           </div>
         </div>

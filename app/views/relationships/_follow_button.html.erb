@@ -3,14 +3,18 @@
   <% if current_user.following?(user) %>
     <%= form_with(model: current_user.relationships.find_by(follow_id: user.id), local: true, method: :delete, data: { confirm: '本当にフォローを解除しますか？' }) do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォロー中', class: 'btn btn-secondary btn-block' %>
+      <%= f.submit 'フォロー中', class: 'btn btn-secondary btn-sm' %>
     <% end %>
     
   <% else %>
     <%= form_with(model: current_user.relationships.build, local: true) do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'フォローする', class: 'btn btn-primary btn-sm' %>
     <% end %>
   
   <% end %>
+
+<% else %>
+  <%= link_to 'マイページ編集', edit_user_path(@current_user), class: 'btn btn-success btn-block' %>
+
 <% end %>

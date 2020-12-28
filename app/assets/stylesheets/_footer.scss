@@ -1,0 +1,29 @@
+.heading p {
+  margin-top: 100px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+  text-align: center;
+  opacity: 0.5;
+}
+
+footer {
+  height: auto;
+  width: 100%;
+  a {
+  text-align: center;
+  display: block;
+  color: black;
+  opacity: 0.5;
+  }
+}
+  
+ul.flex-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  color: black;
+}
+li.flex_item {
+  flex: auto;
+  width: 25%;
+}

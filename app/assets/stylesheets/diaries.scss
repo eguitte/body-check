@@ -1,0 +1,15 @@
+// Place all the styles related to the diaries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.units placeholder {
+  text-align: right;
+}
+
+form-group::placeholder {
+  text-align: right;
+}
+input {
+    width: 300px;
+    text-align: center;
+}

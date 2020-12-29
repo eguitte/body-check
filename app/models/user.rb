@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_relationship, source: :user
   mount_uploader :image, ImageUploader
   
+  has_many :diaries
+  
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="diary-title mt-2 text-center">
+        <h1>新しい記録</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row text-center">
+    <div class="col-sm-6 offset-sm-3">
+      <%= form_with(model: @diary, local: true) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="units">
+          
+          <div class="form_group">
+            <%= f.label :weight, '体重' %>
+            <%= f.text_field :weight, class: 'form-control', placeholder: 'kg' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :fat, '体脂肪率' %>
+            <%= f.text_field :fat, class: 'form-control', placeholder: '%' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :bmi, 'BMI' %>
+            <%= f.text_field :bmi, class: 'form-control' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :muscle, '筋肉量' %>
+            <%= f.text_field :muscle, class: 'form-control', placeholder: 'kg' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :metabolism, '基礎代謝' %>
+            <%= f.text_field :metabolism, class: 'form-control', placeholder: 'kcal' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :organsfat, '内臓脂肪レベル' %>
+            <%= f.text_field :organsfat, class: 'form-control', placeholder: 'レベル' %>
+          </div>
+          <div class="form-group">
+          <%= f.label :image, '写真' %>
+          <%= f.file_field :image, class: 'form-control' %>
+          </div>
+        </div>
+        
+        <%= f.submit '記録する', class: 'btn btn-secondary btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,39 @@
+<div class="col-12 mt-4">
+  <h2><%= @user.name %>のINBODY推移</h2>
+   <%= link_to '新しい記録', new_diary_path, class: 'btn btn-success' %>
+</div>
+<% if @diaries.any? %>
+<div class="row ml-4">
+  <%= @diaries.each do |diary| %>
+  <div class="col-md-6">
+     <table class="table">
+       <thead class="thead-light text-center mt-4">
+         <tr>
+           <th>体重</th>
+           <th>体脂肪率</th>
+           <th>BMI</th>
+           <th>筋肉量</th>
+           <th>基礎代謝</th>
+           <th>内臓脂肪</th>
+       </thead>
+       
+       <tbody class="text-center">
+         <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span
+         <tr>
+           <th><%= diary.weight %></th>
+           <th><%= diary.fat %></th>
+           <th><%= diary.bmi %></th>
+           <th><%= diary.muscle %></th>
+           <th><%= diary.metabolism %></th>
+           <th><%= diary.organsfat %></th>
+         </tr>
+       </tbody>
+     </table>
+  </div>
+  <div class="col-md-6">
+     <%= image_tag diary.image.url if diary.image? %>
+  </div>
+    <% end %>
+           
+<% end %>
+</div>

@@ -1,31 +1,30 @@
 <ul class="list-unstyled mt-4">
   <% posts.each do |post| %>
     <li class="media mb-3">
-       <div class="icon">
+      <div class="icon">
         <% if post.user.image? %>
           <img class="mr-2 rounded" <%= image_tag post.user.image.url %>
         <% else %>
           <img class="mr-2 rounded" <%= image_tag("default2.png") %>
         <% end %>
-       </div>
+      </div>
        
       <div class="media-body">
         <div>
-          <%= link_to post.user.name, user_path(post.user) %>  <span class="text-muted"> 投稿日時:  <%= post.created_at.to_s(:datetime_jp) %></span>
-        </div>
-        <div>
-          <span style="white-space: pre-wrap;"><p><%= post.content %></p></span>
-        </div>
-        <div class="post-delete">
+          <%= link_to post.user.name, user_path(post.user) %>  
+          <span class="text-muted"> 投稿日時:  <%= post.created_at.to_s(:datetime_jp) %></span>
           <% if current_user == post.user %>
             <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), post, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
           <% end %>
         </div>
+        <div>
+          <span style="white-space: pre-wrap;"><p><%= post.content %></p></span>
+        </div>
       </div>
     </li>
   <% end %>
-  <div class="text-center">
     <%= paginate posts %>
-  </div>
 </ul>
+
+
     

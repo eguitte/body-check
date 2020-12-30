@@ -1,39 +1,57 @@
-<div class="col-12 mt-4">
+<div class="col-12 mt-4 text-center">
+  <div class="diary-title">
+    
   <h2><%= @user.name %>のINBODY推移</h2>
-   <%= link_to '新しい記録', new_diary_path, class: 'btn btn-success' %>
+  </div>
+    <div class="n-diary">
+       <% if current_user == @user %>
+       <%= link_to '新しい記録', new_diary_path, class: 'btn btn-success' %>
+       <% end %>
+    </div>
 </div>
+      
 <% if @diaries.any? %>
-<div class="row ml-4">
-  <%= @diaries.each do |diary| %>
-  <div class="col-md-6">
-     <table class="table">
-       <thead class="thead-light text-center mt-4">
-         <tr>
-           <th>体重</th>
-           <th>体脂肪率</th>
-           <th>BMI</th>
-           <th>筋肉量</th>
-           <th>基礎代謝</th>
-           <th>内臓脂肪</th>
-       </thead>
-       
-       <tbody class="text-center">
-         <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span
-         <tr>
-           <th><%= diary.weight %></th>
-           <th><%= diary.fat %></th>
-           <th><%= diary.bmi %></th>
-           <th><%= diary.muscle %></th>
-           <th><%= diary.metabolism %></th>
-           <th><%= diary.organsfat %></th>
-         </tr>
-       </tbody>
-     </table>
-  </div>
-  <div class="col-md-6">
-     <%= image_tag diary.image.url if diary.image? %>
-  </div>
-    <% end %>
+  <div class="row diary mr-2 ml-2">
+    <%= @diaries.each do |diary| %>
+      <div class="col-md-6 diary-table mt-4">
+        <table class="table table-bordered">
+          <thead class="thead-light text-center mt-4">
+            <tr>
+              <th>体重</th>
+              <th>体脂肪率</th>
+              <th>BMI</th>
+              <th>筋肉量</th>
+              <th>基礎代謝</th>
+              <th>内臓脂肪</th>
+            </tr>
+          </thead>
            
+          <tbody class="text-center">
+            <div class="post-time">
+              <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span>
+              <% if current_user == diary.user %>
+                <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_diary_path(@current_user)) %>
+                <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), diary, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
+              <% end %>
+            </div>
+            <tr>
+              <th><%= diary.weight %>kg</th>
+              <th><%= diary.fat %>%</th>
+              <th><%= diary.bmi %></th>
+              <th><%= diary.muscle %>kg</th>
+              <th><%= diary.metabolism %>kcal</th>
+              <th><%= diary.organsfat %>レベル</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+               
+      <div class="col-md-6 text-center diary-img mt-4">
+        <%= image_tag diary.image.url if diary.image? %>
+      </div>
+    <% end %>
+    <div class="diary-page">
+      <%= paginate @diaries %>
+    </div>
+  </div>
 <% end %>
-</div>

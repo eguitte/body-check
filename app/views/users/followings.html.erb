@@ -1,44 +1,50 @@
-<div class="container">
+<div class="mypage">
+  <div class="profile-icon">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top" %>
+    <% else %>
+      <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top") %>
+    <% end %>
+  </div>
   
- <div class="row">
-    <div class="col-sm-6 mt-4">
-      <div class="card text-black bg-light">
-        <div>
-          <% if @user.image? %>
-            <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top" %>
-          <% else %>
-            <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top") %>
-          <% end %>
+  <div class="profile-name mt-2">
+    <h1 class="card-title text-center">
+      <%= @user.name %>
+      <% if current_user == @user %>
+          <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_user_path(@current_user)) %>
+      <% else %>
+        <div class="flw-btn">
+          <%= render 'relationships/follow_button', user: @user %>
         </div>
-        <div class="card-header">
-          <h2 class="card-title text-center"><%= @user.name %></h2>
-        </div>
-        <div class="card-footer"><%= render 'relationships/follow_button', user: @user %></div>
+      <% end %>
+    </h1>
+  </div>
+            
+  <div class="profile-text text-center">
+    <% if @user.profile? %>
+      <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
+    <% end %>
+  </div>
+      
+  <div class="mypage-bnt mt-2">
+    <div class="row">
+      <div class="col-md-6 text-center diary-btn">
+        <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation' %>
       </div>
-    </div>
-    <div class="col-sm-6 mt-4">
-      <div class="card text-black bg-light">
-        <div class="card-text">
-          <h4 class="text-center">プロフィール</h4>
-          <div class="overflow-auto">
-            <% if @user.profile? %>
-              <span style="white-space: pre-wrap;"><%= @user.profile %></span>
-            <% end %>
-          </div>
-        </div>
+      <div class="col-md-6 text-center workouts-btn">
+        <%= link_to 'カレンダー', diaries_user_path, class: 'btn btn-malformation' %>
       </div>
     </div>
   </div>
+</div>
   
-  <div class="row mt-4">
-    <div class="col-sm-12">
-      <ul class="nav nav-tabs nav-justified mb-3">
-        <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
-        <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-        <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
-      </ul>
-      <%= render 'users', users: @followings %>
-    </div>
+<div class="row mt-4">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+    </ul>
+    <%= render 'users', users: @followings %>
   </div>
-
 </div>

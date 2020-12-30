@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :destroy, :followings, :followers, :diaries]
+  before_action :correct_user, only: [:destroy, :update, :edit]
   
   
   def index
@@ -30,12 +31,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    
     if @user.update(user_params)
       flash[:success] = "マイページを更新しました！"
       redirect_to @user
@@ -46,7 +44,6 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     
     flash[:success] = "退会しました。"
@@ -67,7 +64,7 @@ class UsersController < ApplicationController
   
   def diaries
     @user = User.find(params[:id])
-    @diaries = @user.diaries.page(params[:page])
+    @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(5)
   end
       
   
@@ -76,4 +73,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
   end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless current_user == @user 
+      redirect_to user_path(@current_user)
+    end
+  end
+  
 end

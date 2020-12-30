@@ -2,21 +2,112 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
-
-
-
-
 .icon img {
   width: 64px;
   height: 64px;
   object-fit: cover;
 }
 
-.profile-icon {
-  object-fit: cover;
+.mypage {
+  height: 900px;
+  background-color: #CCCCCC;
   width: 100%;
-  height: 80%;
+}
+
+.profile-icon {
+  margin: 0 auto;
+  
+}
+.profile-icon img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.edt {
+  color: #000;
+  opacity: 0.7;
+}
+.edt:hover {
+  color: #008800;
+}
+.profile-text {
+  height: 150px;
+}
+
+a.btn-malformation {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+
+  padding: 3rem 4rem;
+
+  color: #fff;
+  border-radius: 100% 80px / 80px 100%;
+  background-color: #AAAAAA;
+}
+
+a.btn-malformation:hover {
+  color: #fff;
+  border-radius: 60% 80% / 100% 80%;
+  background-color: #FFAD90;
+}
+
+// diary
+.diary {
+  margin-top: 50px;
+}
+.post-time {
+  font-weight: bold;
+}
+
+.diary-table {
+  height: 400px;
+}
+
+.diary-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+.diary-img img {
+  border-radius: 10%;
+  height: 400px;
+  width: 400px;
+}
+
+.diary-title h2 {
+  position: relative;
+  color: white;
+  background: #FF773E;
+  line-height: 1.4;
+  padding: 0.5em 0.5em 0.5em 1.8em;
+}
+
+.diary-title h2:before {
+  font-family: "Font Awesome 5 bars";
+  content: "\f14a";
+  font-weight: 900;
+  position: absolute;
+  left : 0.5em;
 }

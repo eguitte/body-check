@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :diaries, only: [:new, :create, :edit, :update, :destroy]
-  resources :workouts, only: [:new, :create, :edit, :update, :destroy]
+  resources :workouts, only: [:show, :new, :create, :edit, :update, :destroy]
 end

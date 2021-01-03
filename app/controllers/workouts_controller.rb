@@ -1,5 +1,10 @@
 class WorkoutsController < ApplicationController
   before_action :require_user_logged_in
+  before_action :correct_user, only: [:destroy, :edit, :update]
+  
+  def show
+     @workout = current_user.workouts.find_by(id: params[:id])
+  end
   
   def new
     @workout = Workout.new
@@ -20,13 +25,32 @@ class WorkoutsController < ApplicationController
   def edit
   end
 
-  def uodate
+  def update
+    if @workout.update(workout_params)
+      flash[:success] = '更新しました！'
+      redirect_to workouts_user_path(current_user)
+    else
+      @workouts = current_user.workouts.order(id: :desc).page(params[:page])
+      render :edit
+    end
   end
 
   def destroy
-  end
+    @workout.destroy
+    flash[:success] = 'ワークアウト記録を削除しました。'
+    redirect_to workouts_user_path(current_user)
+  end 
+  
+  private
   
   def workout_params
-    params.require(:workout).permit(:title, :content, :date)
+    params.require(:workout).permit(:title, :content, :start_time)
+  end
+  
+  def correct_user
+    @workout = current_user.workouts.find_by(id: params[:id])
+    unless @workout
+      redirect_to user_path(@current_user)
+    end
   end
 end

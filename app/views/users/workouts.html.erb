@@ -11,34 +11,36 @@
 
 <% if @workouts.any? %>
   <div class="row">
-    <%= @workouts.each do |workout| %>
-      <div class="col-12">
+    <div class="col-md-8 offset-md-2 mt-4">
+      <%= @workouts.each do |workout| %>
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
             <tr>
-              <th>タイトル</th>
               <th>日付</th>
-              <th>ワークアウト内容</th>
+              <th>タイトル</th>
             </tr>
           </thead>
           <tbody class="text-center">
             <tr>
-              <th><%= workout.title %></th>
-              <th><%= workout.date.strftime("%Y-%m-%d %H:%M") %></th>
-              <th><%= workout.content %></th>
+              <th><%= workout.start_time&.strftime("%Y-%m-%d %H:%M") %></th>
+              <th><%= link_to workout.title, workout %></th>
             </tr>
           </tbody>
         </table>
-      </div>
-    <% end %>
+      <% end %>
+        <div>
+          <%= paginate @workouts %>
+        </div>
+    </div>
       
-      <div class="col-12">
+      
+      <div class="col-12 mt-4 mr-2 ml-2">
         <%= month_calendar events: @workouts do |date, workouts| %>
-        <%= date.day %>
+          <%= date.day %>
 
         <% workouts.each do |workout| %>
           <div>
-            <%= link_to workout.title, workout %>
+            <%= link_to workout.title %>
           </div>
         <% end %>
         <% end %>

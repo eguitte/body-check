@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   
   def workouts
     @user = User.find(params[:id])
-    @workouts = @user.workouts.order(id: :desc).page(params[:page])
+    @workouts = @user.workouts.order(id: :desc).page(params[:page]).per(7)
   end
       
   

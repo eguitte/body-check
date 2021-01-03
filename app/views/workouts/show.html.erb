@@ -1,0 +1,26 @@
+<div class="workout-show text-center">
+    <h2 class="mt-4"><span><i class="fas fa-check-circle"></i></span>ワークアウト詳細</h2>
+</div>
+
+
+
+<div class="col-md-6 offset-md-3">
+  <table class="table table-bordered">
+      <tr>
+        <th>日付</th>
+        <td><%= @workout.start_time %></td>
+      </tr>
+      <tr>
+        <th>タイトル</th>
+        <td><%= @workout.title %></td>
+      </tr>
+      <tr>
+        <th>ワークアウト内容</th>
+        <td><span style="white-space: pre-wrap;"><%= @workout.content %></span></td>
+      </tr>
+  </table>
+  
+  <%= link_to '一覧へ戻る', workouts_user_path(@workout), class: 'btn btn-light' %>
+  <%= link_to '編集する', edit_workout_path(@workout), class: 'btn btn-light' %>
+  <%= link_to '削除する', @workout, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },  class: 'btn btn-danger'  %>
+</div>

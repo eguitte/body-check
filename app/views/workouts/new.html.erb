@@ -4,7 +4,7 @@
       <%= form_with(model: @workout, local: true) do |f| %>
        <%= render 'layouts/error_messages', model: f.object %>
         <div class="units">
-          <div class="form_group">
+          <div class="form_group mt-4">
             <%= f.label :title, 'タイトル' %>
             <%= f.text_field :title, class: 'form-control', placeholder: '20文字以内' %>
           </div>
@@ -12,9 +12,9 @@
             <%= f.label :content, 'ワークアウト内容' %>
             <%= f.text_area :content, class: 'form-control', placeholder: '260文字以内', rows: 5 %>
           </div>
-          <div class="form_group">
-            <%= f.label :date, '日付' %>
-            <%= f.date_select :start_time %>
+          <div class="form_group mt-4">
+            <%= f.label :start_time, '日付' %>
+            <%= f.datetime_select :start_time %>
           </div>
         </div>
           <%= f.submit '記録する', class: 'btn btn-secondary btn-block' %>

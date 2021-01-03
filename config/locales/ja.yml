@@ -17,5 +17,10 @@ ja:
         email: メールアドレス
         password: パスワード
         profile: プロフィール
+      workout:
+        title: タイトル
+        content: 内容
+      diary:
+        weight: 体重
   posts:
   

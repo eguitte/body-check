@@ -13,6 +13,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :diaries
+  has_many :workouts
   
   def follow(other_user)
     unless self == other_user

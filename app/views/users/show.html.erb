@@ -20,7 +20,7 @@
     </h1>
   </div>
             
-  <div class="profile-text text-center">
+  <div class="col-md-6 offset-md-3">
     <% if @user.profile? %>
       <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
     <% end %>
@@ -32,7 +32,7 @@
         <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
       </div>
       <div class="col-md-6 text-center">
-        <%= link_to 'カレンダー', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
+        <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
       </div>
     </div>
 

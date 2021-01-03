@@ -1,0 +1,47 @@
+<div class="col-12 text-center">
+  <div class="workout-title">
+    <h2 class="mt-4"><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のワークアウト記録</h2>
+  </div>
+  <div class="n-workout">
+     <% if current_user == @user %>
+     <%= link_to '新しい記録を追加', new_workout_path, class: 'btn btn-dark' %>
+     <% end %>
+  </div>
+</div>
+
+<% if @workouts.any? %>
+  <div class="row">
+    <%= @workouts.each do |workout| %>
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead class="thead-light text-center mt-4">
+            <tr>
+              <th>タイトル</th>
+              <th>日付</th>
+              <th>ワークアウト内容</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr>
+              <th><%= workout.title %></th>
+              <th><%= workout.date.strftime("%Y-%m-%d %H:%M") %></th>
+              <th><%= workout.content %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+      
+      <div class="col-12">
+        <%= month_calendar events: @workouts do |date, workouts| %>
+        <%= date.day %>
+
+        <% workouts.each do |workout| %>
+          <div>
+            <%= link_to workout.title, workout %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+  </div>
+<% end %>

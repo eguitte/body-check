@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// mypage user#show
 .icon img {
   width: 64px;
   height: 64px;
@@ -24,6 +25,7 @@
   object-fit: cover;
   border-radius: 50%;
   background: #fff;
+  margin-top: 10px;
 }
 
 .edt {
@@ -72,14 +74,20 @@ a.btn-malformation:hover {
   background-color: #FFAD90;
 }
 
-// diary
-.diary {
-  margin-top: 50px;
-}
+
+// users#diary
+
 .post-time {
   font-weight: bold;
 }
-
+@media (min-width: 1000px) {
+  .diary-table {
+    height: 100px;
+  }
+  .diary-img {
+    margin: auto 0;
+  }
+}
 .diary-table {
   height: 400px;
 }
@@ -89,6 +97,7 @@ a.btn-malformation:hover {
   width: 400px;
   object-fit: cover;
   border-radius: 10%;
+  margin: 0 auto;
 }
 .diary-img img {
   border-radius: 10%;
@@ -98,16 +107,25 @@ a.btn-malformation:hover {
 
 .diary-title h2 {
   position: relative;
-  color: white;
-  background: #FF773E;
-  line-height: 1.4;
-  padding: 0.5em 0.5em 0.5em 1.8em;
+  overflow: hidden;
+  padding: 1.5rem 2rem 1.5rem 80px;
+  border: 3px solid #000;
+  border-radius: 100vh;
+  margin-top: 10px;
 }
 
-.diary-title h2:before {
-  font-family: "Font Awesome 5 bars";
-  content: "\f14a";
-  font-weight: 900;
+.diary-title h2 span {
+  font-size: 30px;
+  font-size: 3rem;
+  line-height: 50px;
   position: absolute;
-  left : 0.5em;
+  top: calc(50% - 25px);
+  left: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  color: #000;
+}
+.diary {
+  background-color: #EEEEEE;
 }

@@ -1,6 +1,6 @@
 class DiariesController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy, :update, :edit]
+  before_action :correct_user, only: [:destroy, :edit, :update]
   
   def new
     @diary = Diary.new
@@ -13,7 +13,7 @@ class DiariesController < ApplicationController
       redirect_to diaries_user_path(current_user)
     else
       @diaries = current_user.diaries.order(id: :desc).page(params[:page])
-      flash.now[:danger] = '記録の投稿に失敗しました'
+      flash.now[:danger] = '投稿に失敗しました'
       render :new
     end
   end
@@ -22,7 +22,7 @@ class DiariesController < ApplicationController
   end
 
   def update
-    if @diary.update
+    if @diary.update(diary_params)
       flash[:success] = 'ダイアリーを更新しました！'
       redirect_to diaries_user_path(current_user)
     else

@@ -66,6 +66,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(5)
   end
+  
+  def workouts
+    @user = User.find(params[:id])
+    @workouts = @user.workouts.order(id: :desc).page(params[:page])
+  end
       
   
   private

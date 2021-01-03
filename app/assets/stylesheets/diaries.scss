@@ -14,28 +14,3 @@ input {
     text-align: center;
 }
 
-h2 {
-  position: relative;
-  display: inline-block;
-  padding: 0 2em;
-  text-align: center;
-}
-
-h2:before,
-h2:after {
-  font-family: 'Font Awesome 5 Free';
-  line-height: 1;
-  position: absolute;
-  top: calc(50% - .5em);
-  color: #eb6100;
-}
-
-h2:before {
-  left: 0;
-  content: '\f101';
-}
-
-h2:after {
-  right: 0;
-  content: '\f100';
-}

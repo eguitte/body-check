@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'workouts/new'
-  get 'workouts/create'
-  get 'workouts/edit'
-  get 'workouts/uodate'
-  get 'workouts/destroy'
   root to: 'toppages#index'
  
   get 'login', to: 'sessions#new'

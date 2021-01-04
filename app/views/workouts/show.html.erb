@@ -8,7 +8,7 @@
   <table class="table table-bordered">
       <tr>
         <th>日付</th>
-        <td><%= @workout.start_time %></td>
+        <td><%= @workout.start_time&.strftime("%Y-%m-%d %H:%M") %></td>
       </tr>
       <tr>
         <th>タイトル</th>
@@ -19,8 +19,11 @@
         <td><span style="white-space: pre-wrap;"><%= @workout.content %></span></td>
       </tr>
   </table>
-  
-  <%= link_to '一覧へ戻る', workouts_user_path(@workout), class: 'btn btn-light' %>
+  <% if current_user == @workout.user%>
+  <%= link_to '一覧へ戻る', workouts_user_path(@current_user), class: 'btn btn-light' %>
   <%= link_to '編集する', edit_workout_path(@workout), class: 'btn btn-light' %>
-  <%= link_to '削除する', @workout, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },  class: 'btn btn-danger'  %>
+  <%= link_to '削除する', @workout, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },  class: 'btn btn-danger' %>
+  <% else %>
+  <%= link_to '一覧へ戻る', workouts_user_path(@workout.user), class: 'btn btn-secondary' %>
+  <% end %>
 </div>

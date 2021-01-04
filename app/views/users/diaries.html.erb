@@ -1,12 +1,12 @@
 <div class="diary">
   
 <div class="col-12 text-center">
-  <div class="diary-title">
+  <div class="diary-title mt-4">
     <h2><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のInBody推移</h2>
   </div>
   <div class="n-diary">
      <% if current_user == @user %>
-     <%= link_to '新しい記録を追加', new_diary_path, class: 'btn btn-dark' %>
+     <%= link_to '新しい記録を追加', new_diary_path, class: 'btn btn-danger' %>
      <% end %>
   </div>
 </div>
@@ -14,7 +14,7 @@
       
 <% if @diaries.any? %>
   <div class="row diary mr-2 ml-2">
-    <%= @diaries.each do |diary| %>
+    <% @diaries.each do |diary| %>
       <div class="col-md-6 diary-table mt-4">
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
@@ -32,11 +32,11 @@
             <div class="post-time">
               <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span>
               <% if current_user == diary.user %>
-                <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_diary_path(@current_user)) %>
+                <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_diary_path(diary)) %>
                 <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), diary, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
               <% end %>
             </div>
-            <tr class="table-light">
+            <tr>
               <th><%= diary.weight %>kg</th>
               <th><%= diary.fat %>%</th>
               <th><%= diary.bmi %></th>

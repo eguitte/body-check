@@ -23,11 +23,11 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      flash[:success] = 'ダイアリーを更新しました！'
+      flash[:success] = '更新しました！'
       redirect_to diaries_user_path(current_user)
     else
       @diaries = current_user.diaries.order(id: :desc).page(params[:page])
-      flash[:success] = 'ダイアリーの更新に失敗しました。'
+      flash[:success] = '更新に失敗しました。'
       render :edit
     end
   end
@@ -47,7 +47,7 @@ class DiariesController < ApplicationController
   def correct_user
     @diary = current_user.diaries.find_by(id: params[:id])
     unless @diary
-      redirect_to user_path(@current_user)
+      redirect_to user_path(current_user)
     end
   end
 end

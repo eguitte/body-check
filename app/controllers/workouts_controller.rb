@@ -3,10 +3,12 @@ class WorkoutsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
   
   def show
-     @workout = current_user.workouts.find_by(id: params[:id])
+     @workout = Workout.find(params[:id])
   end
+     
   
   def new
+     @user = User.find(params[:id])
     @workout = Workout.new
   end
 
@@ -31,6 +33,7 @@ class WorkoutsController < ApplicationController
       redirect_to workouts_user_path(current_user)
     else
       @workouts = current_user.workouts.order(id: :desc).page(params[:page])
+      flash[:success] = '更新に失敗しました。'
       render :edit
     end
   end
@@ -50,7 +53,7 @@ class WorkoutsController < ApplicationController
   def correct_user
     @workout = current_user.workouts.find_by(id: params[:id])
     unless @workout
-      redirect_to user_path(@current_user)
+      redirect_to user_path(current_user)
     end
   end
 end

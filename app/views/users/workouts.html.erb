@@ -4,7 +4,7 @@
   </div>
   <div class="n-workout">
      <% if current_user == @user %>
-     <%= link_to '新しい記録を追加', new_workout_path, class: 'btn btn-dark' %>
+     <%= link_to '新しい記録を追加', new_workout_path, class: 'btn btn-danger' %>
      <% end %>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <% if @workouts.any? %>
   <div class="row">
     <div class="col-md-8 offset-md-2 mt-4">
-      <%= @workouts.each do |workout| %>
+      <% @workouts.each do |workout| %>
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
             <tr>
@@ -40,7 +40,7 @@
 
         <% workouts.each do |workout| %>
           <div>
-            <%= link_to workout.title %>
+            <%= link_to workout.title, workout %>
           </div>
         <% end %>
         <% end %>

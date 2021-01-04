@@ -1,0 +1,39 @@
+<div class="mypage">
+  <div class="profile-icon">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top" %>
+    <% else %>
+      <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top") %>
+    <% end %>
+  </div>
+  
+  <div class="profile-name mt-2">
+    <h1 class="card-title text-center">
+      <%= @user.name %>
+      <% if current_user == @user %>
+          <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_user_path(@current_user)) %>
+      <% else %>
+        <div class="flw-btn">
+          <%= render 'relationships/follow_button', user: @user %>
+        </div>
+      <% end %>
+    </h1>
+  </div>
+            
+  <div class="col-md-6 offset-md-3 text-center">
+    <% if @user.profile? %>
+      <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
+    <% end %>
+  </div>
+      
+
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
+      </div>
+      <div class="col-md-6 text-center">
+        <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
+      </div>
+    </div>
+
+</div>

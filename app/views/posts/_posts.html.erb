@@ -3,12 +3,11 @@
     <li class="media mb-3">
       <div class="icon">
         <% if post.user.image? %>
-          <img class="mr-2 rounded" <%= image_tag post.user.image.url %>
+          <%= image_tag post.user.image.url, :class=>"mr-2 rounded", :alt=>"" %>
         <% else %>
-          <img class="mr-2 rounded" <%= image_tag("default2.png") %>
+          <%= image_tag "default2.png", :class=>"mr-2 rounded", :alt=>"" %>
         <% end %>
       </div>
-       
       <div class="media-body">
         <div>
           <%= link_to post.user.name, user_path(post.user) %>  
@@ -18,13 +17,10 @@
           <% end %>
         </div>
         <div>
-          <span style="white-space: pre-wrap;"><p><%= post.content %></p></span>
+          <span style="white-space: pre-wrap;"><%= post.content %></span>
         </div>
       </div>
     </li>
   <% end %>
-    <%= paginate posts %>
+  <%= paginate posts %>
 </ul>
-
-
-    

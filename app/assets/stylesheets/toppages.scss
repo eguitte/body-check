@@ -1,17 +1,7 @@
-@media (min-width: 1000px) {
-  .main {
-    height: 600px;
-  }
-  .description {
-    text-align: center;
-    width: 100%;
-  }
-}
-
 .main {
   width: 100%;
   height: 800px;
-  background-image: image-url("main3.jpg");
+  background-image: url("main3.jpg");
   background-size: cover;
 }
 .description{
@@ -35,6 +25,24 @@
   margin: 0 20px;
 }
   
+@media (max-width: 800px) {
+  .main {
+    height: 550px;
+  }
+  .description {
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 300px;
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+    
+    
+  
+
 footer.home {
   background-color: #111111;
   height: 50px;
@@ -43,7 +51,7 @@ footer.home {
     display: block;
     line-height: 50px;
     text-align: center;
-    color: white;
+    color: #fff;
     opacity: 0.6;
   }
 }
@@ -60,3 +68,15 @@ footer.home {
   border-radius: 50%;
   width: 100%;
 }
+
+@media (max-width: 800px) {
+  .content {
+  h2 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  }
+}
+  

@@ -1,14 +1,15 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-5 mt-4 ml-4 mr-4">
+    <aside class="col-md-4 ml-4 mt-4 mr-4">
       <%= form_with(model: @post, local: true) do |f| %>
+       <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group mt-4">
           <%= f.text_area :content, class: 'form-control', rows: 8 %>
         </div>
         <%= f.submit '投稿する', class: 'btn btn-secondary btn-block' %>
       <% end %>
     </aside>
-    <div class="col-md-6 mt-4 ml-4">
+    <div class="col-md-4 mt-4 ml-4 ">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>
@@ -23,11 +24,8 @@
            <%= link_to "ログイン", login_path, class: "btn btn-danger login" %>
          </div>
       </div>
-           
-      
-     
     </div>
-    
+           
     <div class="content mt-2 mb-2">
       <div class="container">
         <div class="row">
@@ -38,12 +36,11 @@
             <h4>他のユーザーと繋がってフィットネスライフを楽しめるコミュニティサイトです！</h4>
           </div>
           <div class="col-md-6 content-image">
-            <%= image_tag 'content.jpg' %>
+            <%= image_tag 'content.jpg', :alt=>"" %>
           </div>
         </div>
       </div>
     </div>
-    
     <footer class="home">
     <p>Copyright BodyCheck All Rights Reserved</p>
     </footer>

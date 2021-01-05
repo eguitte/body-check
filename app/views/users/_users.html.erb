@@ -4,9 +4,9 @@
       <li class="media mt-4">
         <div class="icon">
         <% if user.image? %>
-          <img class="mr-3 rounded" <%= image_tag user.image.url %>
+          <%= image_tag user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
         <% else %>
-          <img class="mr-3 rounded" <%= image_tag("default2.png") %>
+          <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
         <% end %>
         </div>
           
@@ -27,5 +27,4 @@
   <div class="text-center">
     <%= paginate users %>
   </div>
-    
 <% end %>

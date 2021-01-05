@@ -17,9 +17,14 @@ ja:
         email: メールアドレス
         password: パスワード
         profile: プロフィール
+      post:
+        content: 投稿内容
       workout:
         title: タイトル
         content: 内容
+        Next: 翌月
+        Previous: 前月
+        
       diary:
         weight: 体重
   posts:

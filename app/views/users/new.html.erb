@@ -1,5 +1,4 @@
 <div class="container">
-      
   <div class="row mt-4">
     <div class="col-12">
       <div class=" signup-title text-center">
@@ -7,7 +6,6 @@
       </div>
     </div>
   </div>
-  
   <div class="row text-center">
     <div class="col-sm-6 offset-sm-3">
       <%= form_with(model: @user, local: true) do |f| %>
@@ -38,5 +36,4 @@
         <p class="mt-2">登録済みの方: <%= link_to 'ログイン', login_path %></p>
     </div>
   </div>
-  
 </div>

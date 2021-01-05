@@ -2,7 +2,6 @@
   <p>Copyright BodyCheck All Rights Reserved</p>
 </div>
 <footer>
-  
   <ul class="flex-list">
     <li class="flex_item">
       <%= link_to user_path(@current_user) do %>
@@ -10,25 +9,23 @@
         <p>マイページ</p>
       <% end %>
     </li>
-  
-      <li class="flex_item">
-        <%= link_to root_path do %>
-         <i class="fa fa-comment"></i>
-          <p>タイムライン</p>
-        <% end %>
-      </li>
-      <li class="flex_item">
-        <%= link_to users_path do %>
-          <i class="fa fa-user-circle"></i>
-          <p class="user-footer-link">ユーザー一覧</p>
-        <% end %>
-      </li>
-   
-      <li class="flex_item">
-      <%= link_to logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
-        <i class="fa fa-reply-all"></i>
-        <p>ログアウト</p>
+    <li class="flex_item">
+      <%= link_to root_path do %>
+        <i class="fa fa-comment"></i>
+        <p>タイムライン</p>
       <% end %>
-      </li>
+    </li>
+    <li class="flex_item">
+      <%= link_to users_path do %>
+        <i class="fa fa-user-circle"></i>
+        <p class="user-footer-link">ユーザー一覧</p>
+      <% end %>
+    </li>
+    <li class="flex_item">
+    <%= link_to logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
+      <i class="fa fa-reply-all"></i>
+      <p>ログアウト</p>
+    <% end %>
+    </li>
   </ul>
 </footer>

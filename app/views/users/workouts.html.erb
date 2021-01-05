@@ -22,28 +22,24 @@
           </thead>
           <tbody class="text-center">
             <tr>
-              <th><%= workout.start_time&.strftime("%Y-%m-%d %H:%M") %></th>
+              <th><%= workout.start_time.strftime("%Y-%m-%d %H:%M") %></th>
               <th><%= link_to workout.title, workout %></th>
             </tr>
           </tbody>
         </table>
       <% end %>
-        <div>
-          <%= paginate @workouts %>
-        </div>
+      <%= paginate @workouts %>
     </div>
-      
-      
-      <div class="col-12 mt-4 mr-2 ml-2">
-        <%= month_calendar events: @workouts do |date, workouts| %>
-          <%= date.day %>
+    <div class="col-12 mt-4 mr-2 ml-2">
+      <%= month_calendar events: @workouts do |date, workouts| %>
+        <%= date.day %>
 
-        <% workouts.each do |workout| %>
-          <div>
-            <%= link_to workout.title, workout %>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
+      <% workouts.each do |workout| %>
+        <div>
+          <%= link_to workout.title, workout %>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>

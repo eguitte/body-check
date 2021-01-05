@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html  lang="ja">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Body Check</title>
     <%= favicon_link_tag('favicon.ico') %>
-    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -21,14 +19,10 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-
-    
       <%= render 'layouts/flash_messages' %>
-
       <%= yield %>
        <% if logged_in? %>
         <%= render "layouts/footer" %>
        <% end %>
-
   </body>
 </html>

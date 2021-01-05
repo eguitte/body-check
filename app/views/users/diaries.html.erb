@@ -1,21 +1,26 @@
 <div class="diary">
-  
-<div class="col-12 text-center">
-  <div class="diary-title mt-4">
-    <h2><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のInBody推移</h2>
+  <div class="col-12 text-center">
+    <div class="diary-title mt-4">
+      <h2><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のInBody推移</h2>
+    </div>
+    <div class="n-diary">
+       <% if current_user == @user %>
+         <%= link_to '新しい記録を追加', new_diary_path, class: 'btn btn-danger' %>
+       <% end %>
+    </div>
   </div>
-  <div class="n-diary">
-     <% if current_user == @user %>
-     <%= link_to '新しい記録を追加', new_diary_path, class: 'btn btn-danger' %>
-     <% end %>
-  </div>
-</div>
   
-      
-<% if @diaries.any? %>
   <div class="row diary mr-2 ml-2">
+  <% if @diaries.any? %>
     <% @diaries.each do |diary| %>
       <div class="col-md-6 diary-table mt-4">
+        <div class="post-time">
+          <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span>
+          <% if current_user == diary.user %>
+            <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_diary_path(diary)) %>
+            <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), diary, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
+          <% end %>
+        </div>
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
             <tr>
@@ -27,15 +32,7 @@
               <th>内臓脂肪</th>
             </tr>
           </thead>
-           
           <tbody class="text-center">
-            <div class="post-time">
-              <span class="text-muted"> 投稿日時:  <%= diary.created_at.to_s(:datetime_jp) %></span>
-              <% if current_user == diary.user %>
-                <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_diary_path(diary)) %>
-                <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), diary, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
-              <% end %>
-            </div>
             <tr>
               <th><%= diary.weight %>kg</th>
               <th><%= diary.fat %>%</th>
@@ -47,14 +44,11 @@
           </tbody>
         </table>
       </div>
-               
       <div class="col-md-6 text-center diary-img mt-4">
         <%= image_tag diary.image.url if diary.image? %>
       </div>
     <% end %>
-    <div class="diary-page">
-      <%= paginate @diaries %>
-    </div>
   </div>
-<% end %>
+    <%= paginate @diaries %>
+  <% end %>
 </div>

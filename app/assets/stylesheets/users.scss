@@ -10,7 +10,6 @@
 }
 
 .mypage {
-  height: 900px;
   background-color: #CCCCCC;
   width: 100%;
 }
@@ -81,22 +80,8 @@ a.btn-malformation:hover {
 .post-time {
   font-weight: bold;
 }
-@media (min-width: 1000px) {
-  .diary-table {
-    height: 100px;
-  }
-  .diary-img {
-    margin: auto 0;
-  }
-}
-.diary-table {
-  height: 400px;
-}
 
 .diary-img {
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
   border-radius: 10%;
   margin: 0 auto;
 }
@@ -104,5 +89,11 @@ a.btn-malformation:hover {
   border-radius: 10%;
   height: 400px;
   width: 400px;
+  object-fit: cover;
 }
 
+@media (min-width: 768px) {
+  .diary-table {
+    height: 400px;
+ }
+}

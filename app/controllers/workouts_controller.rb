@@ -8,7 +8,6 @@ class WorkoutsController < ApplicationController
      
   
   def new
-     @user = User.find(params[:id])
     @workout = Workout.new
   end
 

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row text-center mt-4">
+    <div class="col-sm-6 offset-sm-3">
+      <%= form_with(model: workout, local: true) do |f| %>
+       <%= render 'layouts/error_messages', model: f.object %>
+        <div class="units">
+          <div class="form_group mt-4">
+            <%= f.label :title, 'タイトル' %>
+            <%= f.text_field :title, class: 'form-control', placeholder: '20文字以内' %>
+          </div>
+          <div class="form_group">
+            <%= f.label :content, 'ワークアウト内容' %>
+            <%= f.text_area :content, class: 'form-control', placeholder: '260文字以内', rows: 5 %>
+          </div>
+          <div class="form_group mt-4">
+            <%= f.label :start_time_1i, '日付' %>
+            <%= f.datetime_select :start_time %>
+          </div>
+        </div>
+          <%= f.submit '記録する', class: 'btn btn-secondary btn-block' %>
+      <% end %>
+    </div>
+  </div>
+</div>

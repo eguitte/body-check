@@ -39,8 +39,11 @@
               <th><%= diary.weight %>kg</th>
               <th><%= diary.fat %>%</th>
               <th>
-                <% bmi = diary.weight * 10000 / (diary.height * diary.height) %>
-                <%= bmi.round(1) %>
+                <% bmi = 999 %>
+                <% if (diary.weight.present? && diary.height.present?) %>
+                  <% bmi = diary.weight * 10000 / (diary.height * diary.height) %>
+                  <%= bmi.round(1) %>
+                <% end %>
               </th>
               <th><%= diary.muscle %>kg</th>
               <th><%= diary.metabolism %>kcal</th>

@@ -41,7 +41,7 @@ class DiariesController < ApplicationController
   private
   
   def diary_params
-    params.require(:diary).permit(:weight, :fat, :bmi, :muscle, :metabolism, :organsfat, :image)
+    params.require(:diary).permit(:height, :weight, :fat, :bmi, :muscle, :metabolism, :organsfat, :image)
   end
   
   def correct_user

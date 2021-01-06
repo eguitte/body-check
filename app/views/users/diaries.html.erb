@@ -24,6 +24,7 @@
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
             <tr>
+              <th>身長</th>
               <th>体重</th>
               <th>体脂肪率</th>
               <th>BMI</th>
@@ -34,10 +35,11 @@
           </thead>
           <tbody class="text-center">
             <tr>
-              <th><%= diary.weight %>kg</th>
-              <th><%= diary.fat %>%</th>
+              <th><%= diary.height.to_f %></th>
+              <th><%= diary.weight.to_f %>kg</th>
+              <th><%= diary.fat.to_f %>%</th>
               <th><%= diary.bmi %></th>
-              <th><%= diary.muscle %>kg</th>
+              <th><%= diary.muscle.to_f %>kg</th>
               <th><%= diary.metabolism %>kcal</th>
               <th><%= diary.organsfat %>レベル</th>
             </tr>

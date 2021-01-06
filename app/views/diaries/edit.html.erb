@@ -5,6 +5,10 @@
       <%= render 'layouts/error_messages', model: f.object %>
         <div class="units">
           <div class="form_group">
+            <%= f.label :height, '身長' %>
+            <%= f.text_field :height, class: 'form-control', placeholder: 'cm' %>
+          </div>
+          <div class="form_group">
             <%= f.label :weight, '体重' %>
             <%= f.text_field :weight, class: 'form-control', placeholder: 'kg' %>
           </div>

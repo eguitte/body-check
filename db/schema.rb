@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_133649) do
+ActiveRecord::Schema.define(version: 2021_01_06_015430) do
 
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
-    t.integer "weight"
-    t.integer "fat"
+    t.float "weight"
+    t.float "fat"
     t.integer "bmi"
-    t.integer "muscle"
+    t.float "muscle"
     t.integer "metabolism"
     t.integer "organsfat"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "height"
+    t.float "height"
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 

@@ -23,15 +23,13 @@
       <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
     <% end %>
   </div>
-  <div class="row">
-    <div class="col-md-6 text-center mt-4 mb-4">
+    <div class="col-12 text-center">
+      <div class="mypage-tool mt-4 mb-4">
       <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
-    </div>
-    <div class="col-md-6 text-center mt-4 mb-4">
       <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
+      </div>
     </div>
   </div>
-</div>
   
 <div class="row mt-4">
   <div class="col-sm-12">

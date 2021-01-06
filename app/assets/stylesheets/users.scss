@@ -20,12 +20,16 @@
   
 }
 .profile-icon img {
+  display: inline-block;
   width: 400px;
   height: 400px;
   object-fit: cover;
   border-radius: 50%;
   background: #fff;
-  margin-top: 10px;
+  margin-top: 30px;
+}
+.card-title {
+  margin-top: 40px;
 }
 
 .profile-text {
@@ -96,7 +100,7 @@ a.btn-malformation:hover {
   object-fit: cover;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   .diary-table {
     height: 400px;
  }

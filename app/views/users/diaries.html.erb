@@ -35,11 +35,14 @@
           </thead>
           <tbody class="text-center">
             <tr>
-              <th><%= diary.height.to_f %>cm</th>
-              <th><%= diary.weight.to_f %>kg</th>
-              <th><%= diary.fat.to_f %>%</th>
-              <th><%= diary.bmi %></th>
-              <th><%= diary.muscle.to_f %>kg</th>
+              <th><%= diary.height %></th>
+              <th><%= diary.weight %>kg</th>
+              <th><%= diary.fat %>%</th>
+              <th>
+                <% bmi = diary.weight * 10000 / (diary.height * diary.height) %>
+                <%= bmi.round(1) %>
+              </th>
+              <th><%= diary.muscle %>kg</th>
               <th><%= diary.metabolism %>kcal</th>
               <th><%= diary.organsfat %>レベル</th>
             </tr>

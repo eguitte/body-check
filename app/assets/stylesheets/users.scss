@@ -7,6 +7,7 @@
   width: 64px;
   height: 64px;
   object-fit: cover;
+  text-align: center;
 }
 
 .mypage {
@@ -38,7 +39,10 @@
 .edt:hover {
   color: #008800;
 }
-
+.mypage-tool {
+  display: inline-block;
+  margin-bottom: 40px;
+}
 a.btn-malformation {
   font-size: 1.6rem;
   font-weight: 700;

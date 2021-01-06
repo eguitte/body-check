@@ -23,11 +23,14 @@
       <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
     <% end %>
   </div>
-    <div class="col-12 text-center mb-4">
+    <div class="col-12 text-center">
+      <div class="mypage-tool mt-4 mb-4">
       <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
       <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
+      </div>
     </div>
-    </div>
+  </div>
+        
   
 <div class="row mt-4">
   <div class="col-sm-12 mypage-tabs">
@@ -36,7 +39,7 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
-    <div class="tab-container">
+    <div class="tab-container ml-4">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>

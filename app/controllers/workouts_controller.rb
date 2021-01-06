@@ -3,7 +3,7 @@ class WorkoutsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
   
   def show
-     @workout = Workout.find(params[:id])
+    @workout = Workout.find(params[:id])
   end
      
   

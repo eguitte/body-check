@@ -55,28 +55,15 @@ footer.home {
     opacity: 0.6;
   }
 }
-
-.content {
-  width: 100%;
-  background-color: #EEEEEE;
+.section-heading {
+  margin-top: 50px;
 }
-.content-title {
+.section-subheading {
+  margin-top: 20px;
+}
+.service-heading {
   font-weight: bold;
-}
-
-.content-image img {
-  border-radius: 50%;
-  width: 100%;
-}
-
-@media (max-width: 800px) {
-  .content {
-  h2 {
-    font-size: 30px;
-  }
-  h4 {
-    font-size: 20px;
-  }
-  }
-}
+  opacity: 0.8;
+  margin-top: 20px;
   
+}

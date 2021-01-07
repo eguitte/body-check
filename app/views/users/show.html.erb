@@ -12,6 +12,7 @@
       <% if current_user == @user %>
           <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_user_path(@current_user)) %>
       <% else %>
+        <%= link_to(content_tag(:i, nil, class: 'fas fa-envelope'), chat_path(@user)) %>
         <div class="flw-btn">
           <%= render 'relationships/follow_button', user: @user %>
         </div>

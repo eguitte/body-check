@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :profile, length: { maximum: 160 }
   has_secure_password
-  has_many :posts
+  has_many :posts, dependent: :destroy
   
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -12,8 +12,12 @@ class User < ApplicationRecord
   has_many :followers, through: :reverses_of_relationship, source: :user
   mount_uploader :image, ImageUploader
   
-  has_many :diaries
-  has_many :workouts
+  has_many :diaries, dependent: :destroy
+  has_many :workouts, dependent: :destroy
+  
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
   
   def self.search(search)
      if search

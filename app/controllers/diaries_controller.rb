@@ -9,7 +9,6 @@ class DiariesController < ApplicationController
   def create
     @diary = current_user.diaries.build(diary_params)
     if @diary.save
-      flash[:success] = '記録しました！'
       redirect_to diaries_user_path(current_user)
     else
       @diaries = current_user.diaries.order(id: :desc).page(params[:page])

@@ -1,5 +1,6 @@
 .chat-main {
   margin: 0;
+  padding: 40px 0;
   background-color: #D7EEFF;
 }
 .chat-container {
@@ -27,7 +28,7 @@
 .chat-message {
   font-size: 17px;
   background: #fff;
-  border-radius: 10%;
+  border-radius: 10px;
   padding: 16px 24px;
   max-width: 50%;
   line-height: 2;
@@ -68,6 +69,57 @@ li.right-side {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+.chat-time {
+  font-size: 12px;
+}
+
+.empty {
+  h3 {
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 2em;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    background: #FFFFAA;
+  }
+  
+  h3:before,
+  h3:after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    background: #FFFFAA;
+  }
+  
+  h3:before {
+    right: 30px;
+    bottom: -15px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  h3:after {
+    right: 50px;
+    bottom: -30px;
+    width: 15px;
+    height: 15px;
+  }
+}
+.empty {
+  margin-top: 30px;
+}
+.empty h3 {
+  font-weight: bold;
+  font-size: 35px;
+}
+.empty img {
+  display: inline-block;
+  margin-bottom: 50px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
 h2 {
   font-weight: bold;
   position: relative;
@@ -97,7 +149,4 @@ h2:after {
   bottom: -30px;
   width: 15px;
   height: 15px;
-}
-.chat-time {
-  font-size: 12px;
 }

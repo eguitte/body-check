@@ -14,7 +14,6 @@ class WorkoutsController < ApplicationController
   def create
     @workout = current_user.workouts.build(workout_params)
     if @workout.save
-      flash[:success] = '記録しました！'
       redirect_to workouts_user_path(current_user)
     else
       @workouts = current_user.workouts.order(id: :desc).page(params[:page])

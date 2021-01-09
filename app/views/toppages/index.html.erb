@@ -1,17 +1,25 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4 ml-4 mt-4 mr-4">
+      <% if @posts.any? %>
+    <div class="col-md-6 offset-md-3">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+      <% else %>
+      <div class="col-md-6 offset-md-3 text-center mt-4 empty">
+        <h3>投稿がありません。<br>ユーザー一覧から気になる人をフォローしてタイムラインを充実させよう！<br>積極的に投稿して日々のトレーニングや食事をアウトプットしよう！</h3>
+        <%= image_tag 'nothing2.png' %>
+      </div>
+      <% end %>
+    </div>
+    <aside class="col-md-4 offset-md-4">
       <%= form_with(model: @post, local: true) do |f| %>
        <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group mt-4">
-          <%= f.text_area :content, class: 'form-control', rows: 8 %>
+          <%= f.text_area :content, class: 'form-control', rows: 5, placeholder:'※240文字以内' %>
         </div>
         <%= f.submit '投稿する', class: 'btn btn-secondary btn-block' %>
       <% end %>
     </aside>
-    <div class="col-md-4 mt-4 ml-4 ">
-      <%= render 'posts/posts', posts: @posts %>
-    </div>
   </div>
 <% else %>
 

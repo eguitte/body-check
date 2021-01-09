@@ -1,4 +1,6 @@
 <div class="diary">
+  
+  <% if @diaries.any? %>
   <div class="col-12 text-center">
     <div class="diary-title mt-4">
       <h2><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のInBody推移</h2>
@@ -9,9 +11,7 @@
        <% end %>
     </div>
   </div>
-  
   <div class="row diary mr-2 ml-2">
-  <% if @diaries.any? %>
     <% @diaries.each do |diary| %>
       <div class="col-md-6 diary-table mt-4">
         <div class="post-time">
@@ -58,5 +58,16 @@
     <% end %>
   </div>
     <%= paginate @diaries %>
+  <% else %>
+  <div class="col-md-6 offset-md-3 text-center mt-4 empty">
+      <h3>まだインボディの記録がありません...<br>定期的に記録して体の変化を実感しよう！</h3>
+      <%= image_tag 'nothing2.png' %>
+    <div class="n-diary text-center">
+       <% if current_user == @user %>
+         <%= link_to '最初の記録を入力しよう！', new_diary_path, class: 'btn btn-dark btn-lg' %>
+       <% end %>
+    </div>
+  </div>
   <% end %>
+  
 </div>

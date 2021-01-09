@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = '投稿しました！'
       redirect_to root_url
     else
       @posts = current_user.feed_posts.order(id: :desc).page(params[:page])

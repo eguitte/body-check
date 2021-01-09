@@ -19,8 +19,13 @@ class ChatsController < ApplicationController
   
   def create
     @chat = current_user.chats.new(chat_params)
-    @chat.save
-    redirect_to request.referer
+    if @chat.save
+      redirect_to request.referer
+    else
+      @chats = current_user.chats.order(id: :desc).page(params[:page])
+      flash.now[:danger] = '送信に失敗しました。'
+      render chat_path(current_user)
+    end
   end
   
   def destroy
@@ -41,6 +46,4 @@ class ChatsController < ApplicationController
       redirect_to root_url
     end
   end
-  
-  
 end

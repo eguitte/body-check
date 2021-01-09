@@ -1,31 +1,43 @@
-<% if @chats.any? %>
-  <ul class="list-unstyled mt-4 ml-4">
-    <% @chats.each do |chat| %>
-      <li class="media mt-4">
-        <div class="icon">
+<div class="chat-main">
+  <% if @chats.any? %>
+  <div class="chat-container">
+    
+    <ul class="chats">
+      <% @chats.each do |chat| %>
+      <li class="left-side mt-2">
+        <div class="chat-icon">
           <% if chat.user.image? %>
             <%= image_tag chat.user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
           <% else %>
             <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
           <% end %>
+          <%= chat.user.name %>
         </div>
-        <div class="media-body">
-          <div class="chat-name">
-            <%= chat.user.name %>
-            <span class="text-muted"><%= chat.created_at.to_s(:datetime_jp) %></span>
-            <% if current_user == chat.user %>
-              <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), chat, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
-            <% end %>
-          </div>
-          <span style="white-space: pre-wrap;"><%= chat.message %></span>
-            
+        <div class="chat-message">
+          <h5><span style="white-space: pre-wrap;"><%= chat.message %></span></h5>
         </div>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+      </li> 
 
-<div class="col-md-6 offset-md-3">
+      <li class="right-side mt-2">
+        <div class="chat-icon">
+          <% if chat.user.image? %>
+            <%= image_tag chat.user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
+          <% else %>
+            <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
+          <% end %>
+          <%= chat.user.name %>
+        </div>
+        <div class="chat-message">
+          <span style="white-space: pre-wrap;"><%= chat.message %></span>
+        </div>
+      </li> 
+      <% end %>
+    </ul>
+  </div>
+    <% end %>
+</div>
+            
+<div class="col-md-6 offset-md-3 mt-4">
   <%= form_with model: @chat do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <%= f.text_area :message, class: 'form-control', rows: 3 %>

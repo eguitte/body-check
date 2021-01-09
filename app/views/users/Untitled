@@ -1,0 +1,36 @@
+<div class="col-12">
+<% if @chats.any? %>
+  <ul class="list-unstyled mt-4 ml-4">
+    <% @chats.each do |chat| %>
+      <li class="media mt-4">
+        <div class="icon">
+          <% if chat.user.image? %>
+            <%= image_tag chat.user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
+          <% else %>
+            <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <div class="chat-name">
+            <span class="text-muted"><%= chat.created_at.to_s(:datetime_jp) %></span>
+            <% if current_user == chat.user %>
+              <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), chat, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
+            <% end %>
+            <%= chat.user.name %>
+          </div>
+          <span style="white-space: pre-wrap;"><%= chat.message %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+            
+<div class="col-md-6 offset-md-3 mt-4">
+  <%= form_with model: @chat do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <%= f.text_area :message, class: 'form-control', rows: 3 %>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit '送信', class: 'btn btn-outline-primary btn-block' %>
+  <% end %>
+</div>

@@ -24,7 +24,7 @@
               <% end %>
             </div>
             <div class="chat-message">
-              <span style="white-space: pre-wrap;"><%= chat.message %></span>
+              <span style="white-space: pre-wrap;"><%= chat.message %></span><br><span class="text-muted chat-time"><%= chat.created_at.to_s(:datetime_jp) %></span>
             </div>
           </li> 
         

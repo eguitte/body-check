@@ -21,11 +21,11 @@
 .pagination>li>a {
   border: none;
   color: #696969;
-  background: #fff; 
+  background: #FFF; 
 }
 
 .pagination>.active>a {
-  background: #93c9ff;
+  background: #FFAD90;
   border-radius: 15px;
 }
 

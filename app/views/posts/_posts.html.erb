@@ -9,14 +9,14 @@
         <% end %>
       </div>
       <div class="media-body">
-        <div>
+        <div class="post-title ml-2">
           <%= link_to post.user.name, user_path(post.user) %>  
           <span class="text-muted"> 投稿日時:<%= post.created_at.to_s(:datetime_jp) %></span>
           <% if current_user == post.user %>
             <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), post, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
           <% end %>
         </div>
-        <div>
+        <div class="post-content mt-2 ml-4">
           <span style="white-space: pre-wrap;"><%= post.content %></span>
         </div>
       </div>

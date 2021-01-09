@@ -17,7 +17,10 @@
   background-color: #fff;
 }
 .card-header {
-  background-color: #FFE4E1;
+  background-color: #333333;
+}
+.card-title a {
+  color: #fff;
 }
 .mypage {
   background-color: #EEEEEE;
@@ -91,18 +94,23 @@ a.btn-malformation:hover {
   background-color: #FFC7AF;
 }
 .mypage-tabs {
-  font-weight: bold;
+.nav-item a {
   font-size: 20px;
+  color: #FF9872;
+  
 }
-.mypage-tabs li a {
-  color: #BB0000;
+}
+.post-title a {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222222;
 }
 .card a {
-  color: #222222;
+  color: #fff;
   font-weight: bold;
 }
 .card h4 {
-  text-decoration: underline #FF0000;
+  text-decoration: underline #fff;
 }
 // users#diary
 

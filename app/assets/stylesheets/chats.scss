@@ -19,9 +19,8 @@
   text-align: center;
 }
 .chat-icon img {
-  display: inline-block;
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: #fff;
 }
@@ -64,5 +63,37 @@ li.right-side {
 }
 
 .chat-submit {
-  margin-bottom: 20px;
+  display: inline-block;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+h2 {
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 2em;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  background: #F8F8FF;
+}
+
+h2:before,
+h2:after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+
+h2:before {
+  right: 30px;
+  bottom: -15px;
+  width: 30px;
+  height: 30px;
+}
+
+h2:after {
+  right: 50px;
+  bottom: -30px;
+  width: 15px;
+  height: 15px;
 }

@@ -1,12 +1,47 @@
 <div class="col-12 mt-4 text-center">
-  <h2>BodyCheck ユーザー一覧</h2>
+  <h2><strong> <i class="fa fa-user-circle"></i> BodyCheck ユーザー一覧</strong></h2>
+   <div class="user-search mt-4">
+     
     <%= form_tag(users_path, :method => "get") do %>
     <%= text_field_tag :search %> 
-    <%= submit_tag "検索" ,:name => nil ,class: "btn  btn-outline-primary btn-sm"%> 
+    <%= submit_tag "検索" ,:name => nil ,class: "btn  btn-outline-danger btn-sm"%> 
     <% end %> 
+   </div>
 </div>
 
-<div class="col-12">
-  
-<%= render 'users', users: @users %> 
+<div class="col-md-6 offset-md-3 mt-4">
+  <% if @users.any? %>
+  <ul class="list-unstyled mt-4 ml-4">
+    <% @users.each do |user| %>
+      <div class="card text-center mt-4">
+        <div class="card-header">
+          
+        <div class="index-icon mt-2">
+          <% if user.image? %>
+          <%= image_tag user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
+        <% else %>
+          <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
+        <% end %>
+        </div>
+        <h4 class="card-title mt-2"><%= link_to user.name, user_path(user) %></h4>
+        </div>
+        <div class="card-footer">
+          
+        <div class="card-profile">
+          <% if user.profile? %>
+            <span style="white-space: pre-wrap;"><%= user.profile %></span>
+          <% end %>
+        </div>
+        <div class="invisible-btn mt-4 mb-4">
+            <%= render 'relationships/follow_button', user: user %>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+  <div class="text-center">
+    <%= paginate @users %>
+  </div>
+    
+<% end %>
 </div>

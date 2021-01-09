@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.order(id: :desc).page(params[:page]).per(25).search(params[:search])
+    @users = User.order(id: :desc).page(params[:page]).per(15).search(params[:search])
   end
 
   def show
@@ -48,17 +48,17 @@ class UsersController < ApplicationController
   end
     
   def followings
-    @followings = @user.followings.page(params[:page])
+    @followings = @user.followings.page(params[:page]).per(10)
     counts(@user)
   end
   
   def followers
-    @followers = @user.followers.page(params[:page])
+    @followers = @user.followers.page(params[:page]).per(10)
     counts(@user)
   end
   
   def diaries
-    @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(5)
+    @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(10)
   end
   
   def workouts

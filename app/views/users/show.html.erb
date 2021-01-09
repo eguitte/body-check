@@ -45,7 +45,7 @@
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-dark"><%= @count_followings %></span></a></li>
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-dark"><%= @count_followers %></span></a></li>
     </ul>
-    <div class="tab-container ml-4">
+    <div class="col-md-8 offset-md-2">
       <%= render 'posts/posts', posts: @posts %>
     </div>
   </div>

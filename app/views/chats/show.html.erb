@@ -18,7 +18,7 @@
               <% else %>
                 <%= image_tag "default2.png", :class=>"rounded", :alt=>"" %>
               <% end %>
-              <%= chat.user.name %>
+              <strong><%= chat.user.name %></strong>
               <% if current_user == chat.user %>
                 <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), chat, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
               <% end %>
@@ -32,11 +32,16 @@
         <% end %>
       </ul>
     </div>
+  <% else %>
+  <div class="col-md-5">
+    
+  <h2 class="text-center">チャットを始める</h2>
+  </div>
   <% end %>
-  <div class="col-md-6 offset-md-3 mt-4">
+  <div class="col-md-6 offset-md-3 mt-4 chat-submit">
     <%= form_with model: @chat do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
-      <%= f.text_area :message, class: 'form-control', rows: 3 %>
+      <%= f.text_area :message, class: 'form-control', rows: 5 %>
       <%= f.hidden_field :room_id %>
       <%= f.submit '送信', class: 'btn btn-secondary btn-block' %>
     <% end %>

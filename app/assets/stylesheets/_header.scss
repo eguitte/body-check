@@ -11,3 +11,8 @@
 .header-menu {
   font-size: 50px;
 }
+@media (min-width: 768px) {
+  .nav-item {
+    margin-right: 10px;
+  }
+}

@@ -3,13 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // mypage user#show
-.icon img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  text-align: center;
-}
 
+.icon img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  background-color: #fff;
+}
+.index-icon img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  background-color: #fff;
+}
+.card-header {
+  background-color: #FFE4E1;
+}
 .mypage {
   background-color: #EEEEEE;
   width: 100%;
@@ -88,7 +97,13 @@ a.btn-malformation:hover {
 .mypage-tabs li a {
   color: #BB0000;
 }
-
+.card a {
+  color: #222222;
+  font-weight: bold;
+}
+.card h4 {
+  text-decoration: underline #FF0000;
+}
 // users#diary
 
 .post-time {

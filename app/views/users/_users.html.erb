@@ -1,27 +1,31 @@
-<% if users.any? %>
+<div class="col-md-6 offset-md-3">
+  <% if users.any? %>
   <ul class="list-unstyled mt-4 ml-4">
     <% users.each do |user| %>
-      <li class="media mt-4">
-        <div class="icon">
-        <% if user.image? %>
+      <div class="card text-center mt-4">
+        <div class="card-header">
+          
+        <div class="index-icon mt-2">
+          <% if user.image? %>
           <%= image_tag user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
         <% else %>
           <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
         <% end %>
         </div>
+        <h4 class="card-title mt-2"><%= link_to user.name, user_path(user) %></h4>
+        </div>
+        <div class="card-footer">
           
-      <div class="media-body">
-          <div>
-            <h5><%= link_to user.name, user_path(user) %></h5>
-            <% if user.profile? %>
-              <span style="white-space: pre-wrap;"><%= user.profile %></span>
-            <% end %>
-          </div>
-          <div class="invisible-btn mt-4">
+        <div class="card-profile">
+          <% if user.profile? %>
+            <span style="white-space: pre-wrap;"><%= user.profile %></span>
+          <% end %>
+        </div>
+        <div class="invisible-btn mt-4 mb-4">
             <%= render 'relationships/follow_button', user: user %>
-          </div>
+        </div>
+        </div>
       </div>
-      </li>
     <% end %>
   </ul>
   <div class="text-center">
@@ -29,3 +33,4 @@
   </div>
     
 <% end %>
+</div>

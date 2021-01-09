@@ -7,16 +7,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent header-menu">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to 'マイページ', user_path(@current_user), class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: 'btn btn-block btn-outline-light' %></li>
+          <li class="nav-item"><%= link_to 'マイページ', user_path(@current_user), class: 'btn btn-block btn-outline-light' %></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <a href="#" class="btn btn-block btn-outline-light dropdown-toggle" data-toggle="dropdown">ログイン中：<%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'マイページ編集', edit_user_path(@current_user) %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'ユーザーの一覧', users_path %></li>
+              <li class="dropdown-item"><%= link_to 'タイムライン', root_path %></li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} %></li>
             </ul>

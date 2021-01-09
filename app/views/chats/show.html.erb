@@ -1,47 +1,44 @@
 <div class="chat-main">
   <% if @chats.any? %>
-  <div class="chat-container">
-    
-    <ul class="chats">
-      <% @chats.each do |chat| %>
-      <li class="left-side mt-2">
-        <div class="chat-icon">
-          <% if chat.user.image? %>
-            <%= image_tag chat.user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
-          <% else %>
-            <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
-          <% end %>
-          <%= chat.user.name %>
-        </div>
-        <div class="chat-message">
-          <h5><span style="white-space: pre-wrap;"><%= chat.message %></span></h5>
-        </div>
-      </li> 
-
-      <li class="right-side mt-2">
-        <div class="chat-icon">
-          <% if chat.user.image? %>
-            <%= image_tag chat.user.image.url, :class=>"mr-3 rounded", :alt=>"" %>
-          <% else %>
-            <%= image_tag "default2.png", :class=>"mr-3 rounded", :alt=>"" %>
-          <% end %>
-          <%= chat.user.name %>
-        </div>
-        <div class="chat-message">
-          <span style="white-space: pre-wrap;"><%= chat.message %></span>
-        </div>
-      </li> 
-      <% end %>
-    </ul>
-  </div>
-    <% end %>
-</div>
-            
-<div class="col-md-6 offset-md-3 mt-4">
-  <%= form_with model: @chat do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-    <%= f.text_area :message, class: 'form-control', rows: 3 %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit '送信', class: 'btn btn-outline-primary btn-block' %>
+    <div class="chat-container">
+      <ul class="chats">
+        <% @chats.each do |chat| %>
+        
+        
+          <%# classだけ分岐で用意するパターン %>
+          <%# 条件 ? trueの場合 : falseの場合 %>
+          
+          
+          <% side = current_user == chat.user ? "right-side" : "left-side" %>
+          
+          <li class="<%= side %> mt-2">
+            <div class="chat-icon">
+              <% if chat.user.image? %>
+                <%= image_tag chat.user.image.url, :class=>"rounded", :alt=>"" %>
+              <% else %>
+                <%= image_tag "default2.png", :class=>"rounded", :alt=>"" %>
+              <% end %>
+              <%= chat.user.name %>
+              <% if current_user == chat.user %>
+                <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), chat, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
+              <% end %>
+            </div>
+            <div class="chat-message">
+              <span style="white-space: pre-wrap;"><%= chat.message %></span>
+            </div>
+          </li> 
+        
+          
+        <% end %>
+      </ul>
+    </div>
   <% end %>
+  <div class="col-md-6 offset-md-3 mt-4">
+    <%= form_with model: @chat do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <%= f.text_area :message, class: 'form-control', rows: 3 %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit '送信', class: 'btn btn-secondary btn-block' %>
+    <% end %>
+  </div>
 </div>

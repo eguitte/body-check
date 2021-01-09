@@ -6,12 +6,13 @@
       <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top", :alt=>"") %>
     <% end %>
   </div>
-  <div class="profile-name mt-2">
-    <h1 class="card-title text-center">
+  <div class="profile-name">
+    <h1 class="profile-title text-center">
       <%= @user.name %>
       <% if current_user == @user %>
           <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_user_path(@current_user)) %>
       <% else %>
+        <%= link_to(content_tag(:i, nil, class: 'fas fa-envelope'), chat_path(@user)) %>
         <div class="flw-btn">
           <%= render 'relationships/follow_button', user: @user %>
         </div>
@@ -19,25 +20,31 @@
     </h1>
   </div>
   <div class="col-md-6 offset-md-3 text-center">
-    <% if @user.profile? %>
-      <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
-    <% end %>
+    <div clas="profile-text">
+      <% if @user.profile? %>
+        <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
+      <% end %>
+    </div>
+      
   </div>
-    <div class="col-12 text-center">
-      <div class="mypage-tool mt-4 mb-4">
+
+  <div class="col-12 text-center">
+    <div class="mypage-tool mt-4 mb-4">
       <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
       <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
-      </div>
     </div>
   </div>
+</div>
   
 <div class="row mt-4">
-  <div class="col-sm-12">
+  <div class="col-sm-12 mypage-tabs">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
-      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-dark"><%= @count_posts %></span></a></li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-dark"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-dark"><%= @count_followers %></span></a></li>
     </ul>
+    <div class="tab-container ml-4">
     <%= render 'users', users: @followers %>
+    </div>
   </div>
 </div>

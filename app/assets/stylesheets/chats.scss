@@ -12,6 +12,7 @@
 }
 .chats li {
   display: flex;
+  align-items: baseline;
 }
 .chat-icon {
   width: 80px;
@@ -51,4 +52,17 @@ li.right-side {
   top: 12px;
   right: -16px;
   border-left-color: #FFF;
+}
+
+.left-side .chat-icon {
+  margin-right: 10px;
+}
+
+
+.right-side .chat-icon {
+  margin-left: 10px;
+}
+
+.chat-submit {
+  margin-bottom: 20px;
 }

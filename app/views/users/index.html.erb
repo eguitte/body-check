@@ -1,16 +1,14 @@
-<div class="col-md-6 offset-md-3 mt-4 text-center index-title">
-  <h2><strong><i class="fa fa-user-circle"></i> BodyCheck ユーザー一覧</strong></h2>
-</div>
-   <div class="form_group col-md-4 offset-md-4 mt-4 text-center">
+<% if @users.any? %>
+  <div class="col-md-6 offset-md-3 mt-4 text-center index-title">
+    <h2><strong><i class="fa fa-user-circle"></i> BodyCheck ユーザー一覧</strong></h2>
+  </div>
+  <div class="form_group col-md-4 offset-md-4 mt-4 text-center">
     <%= form_tag(users_path, :method => "get") do %>
     <%= text_field_tag :search, nil, class: "form-control", placeholder: "ユーザー名を入力" %> 
     <%= submit_tag "検索" ,:name => nil ,class: "btn  btn-outline-danger btn-sm mt-2"%> 
     <% end %> 
-   </div>
-
-<div class="col-md-6 offset-md-3 mt-4">
-  <% if @users.any? %>
-  <div class="users mb-4">
+ </div>
+  <div class="users col-md-6 offset-md-3 mt-4 mb-4">
     <% @users.each do |user| %>
       <div class="card text-center user-index">
         <div class="card-header">
@@ -30,12 +28,19 @@
             <% end %>
           </div>
           <div class="invisible-btn mt-2 mb-2">
-              <%= render 'relationships/follow_button', user: user %>
+            <%= render 'relationships/follow_button', user: user %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-    <%= paginate @users %>
-  <% end %>
-</div>
+  <%= paginate @users %>
+<% else %>
+  <div class="col-md-6 offset-md-3 text-center mt-4 empty">
+    <h3>ユーザーが存在しません...</h3>
+    <%= image_tag 'nothing2.png' %>
+  </div>
+  <div class="text-center">
+    <%= link_to 'ユーザー検索に戻る', users_path, class: 'btn btn-dark btn-lg' %>
+  </div>
+<% end %>

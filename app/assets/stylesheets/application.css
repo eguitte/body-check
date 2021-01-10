@@ -18,18 +18,20 @@
 .pagination {
   justify-content: center;
 }
-.pagination>li>a {
+.page-item.active .page-link {
+  background: #666666; 
+}
+.pagination li a {
   border: none;
-  color: #696969;
+  color: #222222;
   background: #FFF; 
 }
 
-.pagination>.active>a {
+.pagination .active a {
   background: #FFAD90;
   border-radius: 15px;
 }
 
-.pagination>li>a:hover {
+.pagination li a:hover {
   border-radius: 15px;
 }
-

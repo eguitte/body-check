@@ -17,10 +17,10 @@
       </tr>
   </table>
   <% if current_user == @workout.user%>
-  <%= link_to '一覧へ戻る', workouts_user_path(@current_user), class: 'btn btn-secondary' %>
-  <%= link_to '編集', edit_workout_path(@workout), class: 'btn btn-secondary' %>
+  <%= link_to '一覧へ戻る', workouts_user_path(@current_user), class: 'btn btn-dark' %>
+  <%= link_to '編集', edit_workout_path(@workout), class: 'btn btn-dark' %>
   <%= link_to '削除', @workout, method: :delete, data: { confirm: '本当に削除してよろしいですか？' },  class: 'btn btn-danger' %>
   <% else %>
-  <%= link_to '一覧へ戻る', workouts_user_path(@workout.user), class: 'btn btn-secondary' %>
+  <%= link_to '一覧へ戻る', workouts_user_path(@workout.user), class: 'btn btn-dark' %>
   <% end %>
 </div>

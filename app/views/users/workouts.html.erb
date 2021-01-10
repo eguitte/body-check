@@ -1,42 +1,39 @@
-
 <% if @workouts.any? %>
-<div class="col-12 text-center">
-  <div class="workout-title">
-    <h2 class="mt-4"><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のワークアウト記録</h2>
+  <div class="col-md-6 offset-md-3 text-center">
+    <div class="heading-title">
+      <h2 class="mt-4"><span><i class="fas fa-check-circle"></i></span><%= @user.name %>のワークアウト記録</h2>
+    </div>
+    <div class="n-workout">
+       <% if current_user == @user %>
+       <%= link_to '新しい記録を追加', new_workout_path, class: 'btn btn-danger btn-lg' %>
+       <% end %>
+    </div>
   </div>
-  <div class="n-workout">
-     <% if current_user == @user %>
-     <%= link_to '新しい記録を追加', new_workout_path, class: 'btn btn-danger' %>
-     <% end %>
-  </div>
-</div>
-
-  <div class="row">
+  <div class="row workout">
     <div class="col-md-8 offset-md-2 mt-4">
       <% @workouts.each do |workout| %>
         <table class="table table-bordered">
           <thead class="thead-light text-center mt-4">
             <tr>
-              <th>日付</th>
+              <th><strong>日付</strong></th>
               <th>タイトル</th>
             </tr>
           </thead>
           <tbody class="text-center">
             <tr>
               <th><%= workout.start_time.strftime("%Y-%m-%d %H:%M") %></th>
-              <th><%= link_to workout.title, workout %></th>
+              <th class="workout-link"><%= link_to workout.title, workout %></th>
             </tr>
           </tbody>
         </table>
       <% end %>
       <%= paginate @workouts %>
     </div>
-    <div class="col-12 mt-4 mr-2 ml-2">
+    <div class="col-md-10 offset-md-1">
       <%= month_calendar events: @workouts do |date, workouts| %>
         <%= date.day %>
-
       <% workouts.each do |workout| %>
-        <div>
+        <div class="workout-link">
           <%= link_to workout.title, workout %>
         </div>
       <% end %>

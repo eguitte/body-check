@@ -26,29 +26,15 @@ class DiariesController < ApplicationController
       redirect_to diaries_user_path(current_user)
     else
       @diaries = current_user.diaries.order(id: :desc).page(params[:page])
-      flash[:success] = '更新に失敗しました。'
       render :edit
     end
   end
 
   def destroy
     @diary.destroy
-    flash[:success] = 'ダイアリーを削除しました。'
+    flash[:success] = '削除しました。'
     redirect_to diaries_user_path(current_user)
   end
-  
-  def release
-    @diary = Diary.find(params[:id])
-    @diary.released! unless diary.released?
-    redirect_to diaries_user_path(current_user)
-  end
-  
-  def nonrelease
-    @diary = Diary.find(params[:id])
-    @diary.nonreleased! unless diary.nonreleased?
-    redirect_to diaries_user_path(current_user)
-  end
-
   
   private
   

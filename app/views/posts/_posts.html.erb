@@ -1,26 +1,26 @@
-<ul class="list-unstyled mt-4">
-  <% posts.each do |post| %>
-    <li class="media mb-3">
-      <div class="icon">
-        <% if post.user.image? %>
-          <%= image_tag post.user.image.url, :class=>"mr-2 rounded", :alt=>"" %>
-        <% else %>
-          <%= image_tag "default2.png", :class=>"mr-2 rounded", :alt=>"" %>
+<% posts.each do |post| %>
+  <div class="media mt-4">
+    <div class="icon">
+      <% if post.user.image? %>
+        <%= image_tag post.user.image.url, :class=>"mr-2 rounded", :alt=>"" %>
+      <% else %>
+        <%= image_tag "default2.png", :class=>"mr-2 rounded", :alt=>"" %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <div class="post-title ml-2">
+        <%= link_to post.user.name, user_path(post.user) %>  
+        <span class="text-muted ml-2"> 投稿日時:<%= post.created_at.to_s(:datetime_jp) %></span>
+        <% if current_user == post.user %>
+          <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), post, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
         <% end %>
       </div>
-      <div class="media-body">
-        <div class="post-title ml-2">
-          <%= link_to post.user.name, user_path(post.user) %>  
-          <span class="text-muted"> 投稿日時:<%= post.created_at.to_s(:datetime_jp) %></span>
-          <% if current_user == post.user %>
-            <%= link_to(content_tag(:i, nil, class: 'fas fa-trash size'), post, method: :delete, data: { confirm: "本当に削除しますか？?" }) %>
-          <% end %>
-        </div>
-        <div class="post-content mt-2 ml-4">
-          <span style="white-space: pre-wrap;"><%= post.content %></span>
-        </div>
+      <div class="post-content mt-2 ml-4">
+        <span style="white-space: pre-wrap;"><%= post.content %></span>
       </div>
-    </li>
-  <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="timeline-page">
   <%= paginate posts %>
-</ul>
+</div>

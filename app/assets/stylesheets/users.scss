@@ -10,12 +10,16 @@
   object-fit: cover;
   background-color: #fff;
 }
+.user-index {
+  margin-top: 70px;
+}
 .index-icon img {
   width: 120px;
   height: 120px;
   object-fit: cover;
   background-color: #fff;
 }
+
 .card-header {
   background-color: #333333;
 }
@@ -42,10 +46,6 @@
 }
 .profile-name {
   margin-top: 40px;
-}
-
-.profile-text h4 {
-  width: 0 auto;
 }
 
 .edt {
@@ -91,11 +91,12 @@ a.btn-malformation {
 a.btn-malformation:hover {
   color: #fff;
   border-radius: 60% 80% / 100% 80%;
-  background-color: #FFC7AF;
+  background-color: #FF8856;
 }
 .mypage-tabs {
 .nav-item a {
   font-size: 20px;
+  font-weight: bold;
   color: #FF9872;
   
 }
@@ -133,4 +134,25 @@ a.btn-malformation:hover {
   .diary-table {
     height: 400px;
  }
+}
+.logged-in a {
+  color: #FF5F17;
+}
+
+.workout-link a {
+  color: #990000;
+  font-weight: bold;
+}
+.dm {
+  color: #333333;
+}
+.dm:hover {
+  color: #FF5F17;
+}
+.heading-title h2 {
+  background-color: #333333;
+  color: #fff;
+}
+.index-title h2 {
+  background-color: #EEEEEE;
 }

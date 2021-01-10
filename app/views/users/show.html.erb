@@ -1,43 +1,5 @@
-<div class="mypage">
-  <div class="profile-icon">
-    <% if @user.image? %>
-      <%= image_tag @user.image.url, class: "bd-placeholder-img card-img-top", :alt=>"" %>
-    <% else %>
-      <%= image_tag("default2.png", class: "bd-placeholder-img card-img-top", :alt=>"") %>
-    <% end %>
-  </div>
-  <div class="profile-name">
-    <h1 class="profile-title text-center">
-      <strong><%= @user.name %></strong>
-      <% if current_user == @user %>
-          <%= link_to(content_tag(:i, nil, class: 'fas fa-edit edt'), edit_user_path(@current_user)) %>
-      <% else %>
-        <%= link_to(content_tag(:i, nil, class: 'fas fa-envelope'), chat_path(@user)) %>
-        <div class="flw-btn">
-          <%= render 'relationships/follow_button', user: @user %>
-        </div>
-      <% end %>
-    </h1>
-  </div>
-  <div class="col-md-6 offset-md-3 text-center">
-    <div clas="profile-text">
-      <% if @user.profile? %>
-        <h4><span style="white-space: pre-wrap;"><%= @user.profile %></span></h4>
-      <% end %>
-    </div>
+<%= render 'mypage', user: @user %>
       
-  </div>
-
-  <div class="col-12 text-center">
-    <div class="mypage-tool mt-4 mb-4">
-      <%= link_to 'InBody日記', diaries_user_path, class: 'btn btn-malformation mypage-btn' %>
-      <%= link_to 'カレンダー', workouts_user_path, class: 'btn btn-malformation mypage-btn' %>
-    </div>
-  </div>
-</div>
-      
-        
-  
 <div class="row mt-4">
   <div class="col-sm-12 mypage-tabs">
     <ul class="nav nav-tabs nav-justified mb-3">

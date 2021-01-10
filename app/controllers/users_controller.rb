@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+ 
   before_action :set_user, only: [:show, :edit, :update, :destroy, :followings, :followers, :diaries, :workouts]
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :destroy, :followings, :followers, :diaries]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :destroy, :followings, :followers, :diaries, :workouts]
   before_action :correct_user, only: [:destroy, :update, :edit]
   
-  
   def index
-    @users = User.order(id: :desc).page(params[:page]).per(15).search(params[:search])
+    @users = User.order(id: :desc).page(params[:page]).per(20).search(params[:search])
   end
 
   def show
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
   
   def diaries
-    @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(10)
+    @diaries = @user.diaries.order(id: :desc).page(params[:page]).per(5)
   end
   
   def workouts

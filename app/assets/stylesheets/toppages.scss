@@ -20,9 +20,9 @@
   }
 }
 
-
 .login {
   margin: 0 20px;
+  
 }
   
 @media (max-width: 800px) {
@@ -56,7 +56,11 @@ footer.home {
   }
 }
 .section-heading {
-  margin-top: 50px;
+  font-size: 40px;
+  margin-top: 30px;
+  font-weight: bold;
+  background-color: #222222	;
+  color:#fff;
 }
 .section-subheading {
   margin-top: 20px;
@@ -68,5 +72,14 @@ footer.home {
   
 }
 
-.crip-design{font-size: 1.5em;}
-.crip-design{color: #990000;}
+.check-design{font-size: 1.2em;}
+.check-design{color: #990000;}
+
+.link-design{color: #990000}
+
+.timeline {
+  background-color: #333333;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 60px;
+}

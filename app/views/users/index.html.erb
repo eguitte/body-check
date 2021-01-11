@@ -1,6 +1,6 @@
 <% if @users.any? %>
   <div class="col-md-6 offset-md-3 mt-4 text-center index-title">
-    <h2><strong><i class="fa fa-user-circle"></i> BodyCheck ユーザー一覧</strong></h2>
+    <h2><strong><i class="fa fa-user-circle"></i> BodyCheck aユーザー一覧</strong></h2>
   </div>
   <div class="form_group col-md-4 offset-md-4 mt-4 text-center">
     <%= form_tag(users_path, :method => "get") do %>
@@ -37,7 +37,7 @@
   <%= paginate @users %>
 <% else %>
   <div class="col-md-6 offset-md-3 text-center mt-4 empty">
-    <h3>ユーザーが存在しません...</h3>
+    <h3>検索したユーザーは存在しません...</h3>
     <%= image_tag 'nothing2.png' %>
   </div>
   <div class="text-center">

@@ -22,9 +22,9 @@ class ChatsController < ApplicationController
     if @chat.save
       redirect_to request.referer
     else
-      @chats = current_user.chats.order(id: :desc).page(params[:page]).per(50)
-      flash.now[:danger] = '送信に失敗しました。'
-      render chat_path(current_user)
+      @chats = current_user.chats.order(id: :desc).page(params[:page])
+      flash.now[:success] = '送信に失敗しました。'
+      render :show
     end
   end
   

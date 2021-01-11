@@ -28,5 +28,7 @@ ja:
       diary:
         weight: 体重
         height: 身長
+      chat:
+        message: メッセージ
   posts:
   

@@ -24,14 +24,14 @@ class ChatsController < ApplicationController
     else
       @chats = current_user.chats.order(id: :desc).page(params[:page])
       flash.now[:success] = '送信に失敗しました。'
-      render :show
+      redirect_to chat_path(current_user), notice: '投稿に失敗しました。'
     end
   end
   
   def destroy
     @chat.destroy
     flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: chat_path(current_user))
+    redirect_to request.referer
   end
   
   private

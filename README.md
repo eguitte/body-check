@@ -5,8 +5,7 @@
 他のユーザーの投稿やトレーニング記録の閲覧もでき、気になるユーザーにはダイレクトメッセージをして、直接トレーニング方法や食事内容などを質問できます。
 
 ![fa219264b91891746476d8683ff8133e](https://user-images.githubusercontent.com/75208489/104284795-f6d7f180-54f5-11eb-8f00-600a1e6b2178.jpg)
-
-![eabd8231b62798fd9b47ca89fe68b2d4](https://user-images.githubusercontent.com/75208489/104286445-64851d00-54f8-11eb-9edf-a6fb0a45bbc4.jpg)
+<img width="756" alt="0ffa72924ba9eb80cdc4bb11f234019f" src="https://user-images.githubusercontent.com/75208489/104286517-7f579180-54f8-11eb-8035-65d5fec2c5ee.png">
 
 
 ## URL

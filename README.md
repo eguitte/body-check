@@ -23,3 +23,4 @@ https://www.bodycheck.site/
 
 
 * huga 3.5.2
+* hogehuga 1.0.2

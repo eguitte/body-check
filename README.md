@@ -21,6 +21,25 @@ https://www.bodycheck.site/
 
 # 環境使用技術
 
+## 開発環境
+* AWS/Cloud9
+* MySQL2
 
-* huga 3.5.2
-* hogehuga 1.0.2
+## フロントエンド
+* HTML/CSS
+* SCSS
+* Bootstrap
+* JavaScript
+
+##　バックエンド
+* ruby 2.7.0
+
+# フレームワーク
+* Ruby on Rails 6.0.3.3
+
+# 制作背景
+
+# 特に力を入れた点
+
+# ターゲット層
+* SCSS

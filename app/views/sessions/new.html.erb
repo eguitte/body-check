@@ -22,6 +22,15 @@
           <%= f.submit 'ログイン', class: 'btn btn-dark btn-block' %>
       <% end %>
       <p class="mt-2 entry">新規登録は <%= link_to 'こちら', signup_path %></p>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="test-user mt-4">
+          <i class="fas fa-user"></i>
+          <p>テストユーザーとしてログインできます</p>
+          <%= f.hidden_field :email, value: 'test@example.com' %>
+          <%= f.hidden_field :password, value: '123456' %>
+          <%= f.submit 'ログインテスト', class: 'btn btn-outline-danger' %>
+        </div>
+      <% end %>
     </div>
   </div>
 

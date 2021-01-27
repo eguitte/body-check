@@ -1,3 +1,11 @@
 <h1 class="text-center mt-4">編集</h1>
 <%= render 'form', diary: @diary %>
+ <%= form.label(:public, for: nil, class:'post-status__label') do %>
+      <%= form.radio_button :status, :public %>
+      <%= I18n.t('activerecord.attributes.post.statuses.public') %>
+  <% end %>
+  <%= form.label(:private, for: nil, class:'post-status__label') do %>
+      <%= form.radio_button :status, :private %>
+      <%= I18n.t('activerecord.attributes.post.statuses.private') %>
+  <% end %>
  <p class="text-center mt-2 back-index"><%= link_to '一覧に戻る', diaries_user_path(@diary.user) %></p>

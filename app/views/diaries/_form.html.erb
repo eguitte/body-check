@@ -32,6 +32,16 @@
           <%= f.label :image, '写真' %>
           <%= f.file_field :image, class: 'form-control' %>
           </div>
+          <div class="form-group">
+            <%= form.label(:public, for: nil, class:'post-status__label') do %>
+            <%= form.radio_button :status, :public %>
+            <%= I18n.t('activerecord.attributes.post.statuses.public') %>
+            <% end %>
+            <%= form.label(:private, for: nil, class:'post-status__label') do %>
+            <%= form.radio_button :status, :private %>
+            <%= I18n.t('activerecord.attributes.post.statuses.private') %>
+            <% end %>
+          </div>
         </div>
         <div class="caution">
           <p class="text-center">※身長・体重入力必須 その他項目は任意<br>※BMIは身長と体重から自動で計算されます。</p>
